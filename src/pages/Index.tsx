@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { RegistrationForm } from "@/components/RegistrationForm";
-import { Calendar, MapPin, Clock, Crown, Heart, ChefHat, GraduationCap, Music, Book, Users, Star, Award } from "lucide-react";
+import { Calendar, MapPin, Clock, Crown, Heart, ChefHat, GraduationCap, Music, Book, Users, Star, Award, Sparkles, Gift, Handshake } from "lucide-react";
 import heroBanner from "@/assets/hero-banner.jpg";
 import guest1 from "@/assets/guest1.jpg";
 import guest2 from "@/assets/guest2.jpg";
@@ -59,22 +59,47 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
+      {/* Floating flower petals */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-4 h-4 opacity-20 animate-petal-fall"
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 10}s`,
+              animationDuration: `${8 + Math.random() * 4}s`,
+            }}
+          >
+            🌸
+          </div>
+        ))}
+      </div>
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBanner})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-royal/80 to-gold/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-pink/80 via-purple/70 to-purple-deep/60"></div>
+          {/* 3D Flower decorations */}
+          <div className="absolute top-20 left-10 w-24 h-24 animate-float">
+            <div className="w-full h-full bg-gradient-to-br from-rose to-pink-light rounded-full opacity-30 animate-pulse-soft"></div>
+          </div>
+          <div className="absolute bottom-32 right-16 w-32 h-32 animate-bounce-gentle">
+            <div className="w-full h-full bg-gradient-to-br from-purple-light to-purple rounded-full opacity-25 animate-flower-bloom"></div>
+          </div>
         </div>
         
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4 animate-fade-in">
           <div className="flex items-center justify-center mb-6">
-            <Crown className="w-16 h-16 text-gold mr-4" />
-            <h1 className="text-5xl md:text-7xl font-bold">
+            <Crown className="w-16 h-16 text-rose-deep mr-4 animate-bounce-gentle" />
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-white via-rose-deep to-white bg-clip-text text-transparent animate-shimmer bg-300%">
               Royal Ladies Conference
             </h1>
+            <Sparkles className="w-12 h-12 text-rose-deep ml-4 animate-pulse-soft" />
           </div>
           
           <div className="flex items-center justify-center mb-6 text-xl md:text-2xl">
@@ -91,14 +116,14 @@ const Index = () => {
               variant="elegant" 
               size="xl"
               onClick={scrollToRegistration}
-              className="text-xl px-8 py-4"
+              className="text-xl px-8 py-4 animate-bounce-gentle hover:animate-pulse-soft transform hover:scale-105 transition-all duration-300"
             >
               Register Now
             </Button>
             <Button 
               variant="outline" 
               size="xl"
-              className="text-xl px-8 py-4 border-white text-white hover:bg-white hover:text-royal"
+              className="text-xl px-8 py-4 border-white text-white hover:bg-white hover:text-pink transform hover:scale-105 transition-all duration-300"
             >
               Learn More
             </Button>
@@ -110,18 +135,18 @@ const Index = () => {
       <section className="py-20 px-4 bg-gradient-to-b from-background to-muted">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-royal to-gold bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
               Our Vision & Mission
             </h2>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-royal/20 shadow-elegant">
+            <Card className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-in">
               <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-royal to-royal-deep rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-gradient-to-r from-pink to-pink-deep rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
+                  <Star className="w-8 h-8 text-white animate-bounce-gentle" />
                 </div>
-                <CardTitle className="text-2xl text-royal">Our Vision</CardTitle>
+                <CardTitle className="text-2xl text-pink">Our Vision</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-center text-lg text-muted-foreground leading-relaxed">
@@ -132,12 +157,12 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-gold/20 shadow-elegant">
+            <Card className="border-purple/20 shadow-elegant hover:shadow-purple transition-all duration-300 transform hover:scale-105 animate-fade-in">
               <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-gold to-gold-dark rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-gradient-to-r from-purple to-purple-deep rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
+                  <Heart className="w-8 h-8 text-white animate-bounce-gentle" />
                 </div>
-                <CardTitle className="text-2xl text-gold">Our Mission</CardTitle>
+                <CardTitle className="text-2xl text-purple">Our Mission</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-center text-lg text-muted-foreground leading-relaxed">
@@ -155,7 +180,7 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-royal to-gold bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
               About Royal Ladies Conference
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -164,9 +189,9 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card className="text-center border-royal/20">
+            <Card className="text-center border-pink/20 hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-in">
               <CardHeader>
-                <Users className="w-12 h-12 text-royal mx-auto mb-4" />
+                <Users className="w-12 h-12 text-pink mx-auto mb-4 animate-bounce-gentle" />
                 <CardTitle className="text-xl">Community</CardTitle>
               </CardHeader>
               <CardContent>
@@ -176,9 +201,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-gold/20">
+            <Card className="text-center border-purple/20 hover:shadow-purple transition-all duration-300 transform hover:scale-105 animate-fade-in">
               <CardHeader>
-                <GraduationCap className="w-12 h-12 text-gold mx-auto mb-4" />
+                <GraduationCap className="w-12 h-12 text-purple mx-auto mb-4 animate-bounce-gentle" />
                 <CardTitle className="text-xl">Growth</CardTitle>
               </CardHeader>
               <CardContent>
@@ -188,9 +213,9 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-royal/20">
+            <Card className="text-center border-pink/20 hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-in">
               <CardHeader>
-                <Award className="w-12 h-12 text-royal mx-auto mb-4" />
+                <Award className="w-12 h-12 text-pink mx-auto mb-4 animate-bounce-gentle" />
                 <CardTitle className="text-xl">Excellence</CardTitle>
               </CardHeader>
               <CardContent>
@@ -201,7 +226,7 @@ const Index = () => {
             </Card>
           </div>
 
-          <div className="bg-gradient-to-r from-royal-light/10 to-gold-light/10 rounded-lg p-8">
+          <div className="bg-gradient-to-r from-rose/10 to-purple-light/10 rounded-lg p-8 border border-pink/10 shadow-flower">
             <p className="text-lg text-center leading-relaxed text-foreground">
               Royal Ladies Conference is more than an event—it's a movement. Since our inception, we have been 
               committed to creating spaces where women can encounter God, discover their purpose, and develop 
@@ -218,7 +243,7 @@ const Index = () => {
       <section className="py-20 px-4 bg-muted">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-royal to-gold bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
               Meet the Convener
             </h2>
           </div>
@@ -231,17 +256,17 @@ const Index = () => {
                   alt="Conference Convener" 
                   className="w-full max-w-md mx-auto rounded-2xl shadow-elegant"
                 />
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-royal to-gold rounded-full flex items-center justify-center">
-                  <Crown className="w-12 h-12 text-white" />
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-pink to-purple rounded-full flex items-center justify-center animate-pulse-soft">
+                  <Crown className="w-12 h-12 text-white animate-bounce-gentle" />
                 </div>
               </div>
             </div>
             
             <div className="lg:w-2/3">
-              <Card className="border-royal/20 shadow-elegant">
+              <Card className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 animate-fade-in">
                 <CardHeader>
-                  <CardTitle className="text-3xl text-royal">Rev. Dr. Mercy Adelabu</CardTitle>
-                  <CardDescription className="text-lg text-gold font-semibold">
+                  <CardTitle className="text-3xl text-pink">Rev. Dr. Mercy Adelabu</CardTitle>
+                  <CardDescription className="text-lg text-purple font-semibold">
                     Conference Convener & Visionary Leader
                   </CardDescription>
                 </CardHeader>
@@ -265,10 +290,10 @@ const Index = () => {
                   </p>
 
                   <div className="flex flex-wrap gap-2 pt-4">
-                    <span className="px-3 py-1 bg-royal text-white rounded-full text-sm">Author</span>
-                    <span className="px-3 py-1 bg-gold text-white rounded-full text-sm">International Speaker</span>
-                    <span className="px-3 py-1 bg-royal text-white rounded-full text-sm">Leadership Coach</span>
-                    <span className="px-3 py-1 bg-gold text-white rounded-full text-sm">Women's Advocate</span>
+                    <span className="px-3 py-1 bg-pink text-white rounded-full text-sm animate-bounce-gentle">Author</span>
+                    <span className="px-3 py-1 bg-purple text-white rounded-full text-sm animate-bounce-gentle">International Speaker</span>
+                    <span className="px-3 py-1 bg-pink text-white rounded-full text-sm animate-bounce-gentle">Leadership Coach</span>
+                    <span className="px-3 py-1 bg-purple text-white rounded-full text-sm animate-bounce-gentle">Women's Advocate</span>
                   </div>
                 </CardContent>
               </Card>
@@ -281,7 +306,7 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-royal to-gold bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
               Our Distinguished Guests
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -291,7 +316,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {guests.map((guest, index) => (
-              <Card key={index} className="border-royal/20 shadow-elegant hover:shadow-xl transition-all duration-300">
+              <Card key={index} className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-in">
                 <CardHeader className="text-center">
                   <div className="relative mx-auto mb-4">
                     <img 
@@ -299,12 +324,12 @@ const Index = () => {
                       alt={guest.name}
                       className="w-32 h-32 rounded-full object-cover mx-auto shadow-lg"
                     />
-                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-r from-royal to-gold rounded-full flex items-center justify-center">
-                      <Star className="w-5 h-5 text-white" />
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-r from-pink to-purple rounded-full flex items-center justify-center animate-pulse-soft">
+                      <Star className="w-5 h-5 text-white animate-bounce-gentle" />
                     </div>
                   </div>
-                  <CardTitle className="text-xl text-royal">{guest.name}</CardTitle>
-                  <CardDescription className="text-gold font-semibold">{guest.title}</CardDescription>
+                  <CardTitle className="text-xl text-pink">{guest.name}</CardTitle>
+                  <CardDescription className="text-purple font-semibold">{guest.title}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-center text-muted-foreground leading-relaxed">{guest.bio}</p>
@@ -319,7 +344,7 @@ const Index = () => {
       <section className="py-20 px-4 bg-gradient-to-b from-muted to-background">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-royal to-gold bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
               Conference Features
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -329,13 +354,13 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="border-royal/20 shadow-elegant hover:shadow-xl transition-all duration-300">
+              <Card key={index} className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-in">
                 <CardHeader>
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-r from-royal to-gold rounded-full flex items-center justify-center">
-                      <feature.icon className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 bg-gradient-to-r from-pink to-purple rounded-full flex items-center justify-center animate-pulse-soft">
+                      <feature.icon className="w-8 h-8 text-white animate-bounce-gentle" />
                     </div>
-                    <CardTitle className="text-xl text-royal">{feature.title}</CardTitle>
+                    <CardTitle className="text-xl text-pink">{feature.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -347,11 +372,91 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Sponsorship Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-rose/5 to-purple-light/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
+              Sponsorship & Support
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Partner with us to empower the next generation of royal ladies
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-in text-center">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-r from-pink to-pink-deep rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
+                  <Gift className="w-8 h-8 text-white animate-bounce-gentle" />
+                </div>
+                <CardTitle className="text-xl text-pink">Platinum Sponsor</CardTitle>
+                <CardDescription className="text-lg font-semibold text-purple">₦500,000+</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm">• Logo on all promotional materials</p>
+                <p className="text-sm">• Speaking opportunity</p>
+                <p className="text-sm">• VIP seating for 10 guests</p>
+                <p className="text-sm">• Exhibition booth space</p>
+                <p className="text-sm">• Social media promotion</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-purple/20 shadow-elegant hover:shadow-purple transition-all duration-300 transform hover:scale-105 animate-fade-in text-center">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-r from-purple to-purple-deep rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
+                  <Star className="w-8 h-8 text-white animate-bounce-gentle" />
+                </div>
+                <CardTitle className="text-xl text-purple">Gold Sponsor</CardTitle>
+                <CardDescription className="text-lg font-semibold text-pink">₦200,000+</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm">• Logo on event banners</p>
+                <p className="text-sm">• VIP seating for 5 guests</p>
+                <p className="text-sm">• Product display table</p>
+                <p className="text-sm">• Website recognition</p>
+                <p className="text-sm">• Program acknowledgment</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-in text-center">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gradient-to-r from-rose to-pink rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
+                  <Handshake className="w-8 h-8 text-white animate-bounce-gentle" />
+                </div>
+                <CardTitle className="text-xl text-pink">Silver Sponsor</CardTitle>
+                <CardDescription className="text-lg font-semibold text-purple">₦100,000+</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm">• Logo in program booklet</p>
+                <p className="text-sm">• VIP seating for 2 guests</p>
+                <p className="text-sm">• Social media mention</p>
+                <p className="text-sm">• Certificate of appreciation</p>
+                <p className="text-sm">• Networking opportunities</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-lg text-muted-foreground mb-6">
+              Interested in becoming a sponsor? Contact us to discuss custom packages.
+            </p>
+            <Button 
+              variant="elegant" 
+              size="lg"
+              className="bg-gradient-to-r from-pink to-purple hover:from-pink-deep hover:to-purple-deep transform hover:scale-105 transition-all duration-300 animate-bounce-gentle"
+            >
+              Become a Sponsor
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Registration Section */}
       <section id="registration" className="py-20 px-4 bg-muted">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-royal to-gold bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
               Secure Your Spot
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -364,15 +469,16 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-royal to-royal-deep text-white py-16 px-4">
+      <footer className="bg-gradient-to-r from-pink to-purple-deep text-white py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <Crown className="w-8 h-8 text-gold" />
+                <Crown className="w-8 h-8 text-rose-deep animate-bounce-gentle" />
                 <h3 className="text-2xl font-bold">Royal Ladies Conference</h3>
+                <Sparkles className="w-6 h-6 text-rose-deep animate-pulse-soft" />
               </div>
-              <p className="text-royal-light leading-relaxed mb-6">
+              <p className="text-pink-light leading-relaxed mb-6">
                 Empowering women to discover their royal identity and walk in divine purpose. 
                 Join us for an unforgettable experience of transformation, growth, and empowerment.
               </p>

@@ -2,33 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Royal Ladies Conference Design System - Elegant royal theme with purple and gold accents */
+/* Royal Ladies Conference Design System - Feminine pink and purple theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 270 15% 9%;
+    --background: 355 100% 99%;
+    --foreground: 320 15% 9%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 270 15% 9%;
+    --card: 355 100% 99%;
+    --card-foreground: 320 15% 9%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 270 15% 9%;
+    --popover: 355 100% 99%;
+    --popover-foreground: 320 15% 9%;
 
-    --primary: 270 91% 65%;
+    --primary: 315 100% 70%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 270 91% 85%;
+    --primary-glow: 315 100% 85%;
 
-    --secondary: 280 100% 98%;
-    --secondary-foreground: 270 15% 9%;
+    --secondary: 330 100% 98%;
+    --secondary-foreground: 320 15% 9%;
 
-    --royal: 270 91% 65%;
-    --royal-deep: 270 91% 45%;
-    --royal-light: 270 91% 85%;
+    --pink: 330 81% 60%;
+    --pink-light: 330 81% 75%;
+    --pink-deep: 330 81% 45%;
     
-    --gold: 45 100% 60%;
-    --gold-light: 45 100% 80%;
-    --gold-dark: 45 100% 40%;
+    --purple: 280 87% 65%;
+    --purple-light: 280 87% 80%;
+    --purple-deep: 280 87% 50%;
+    
+    --rose: 350 100% 88%;
+    --rose-deep: 350 100% 75%;
 
     --muted: 280 100% 98%;
     --muted-foreground: 270 10% 46%;
@@ -43,20 +46,25 @@
     --input: 270 20% 96%;
     --ring: 270 91% 65%;
 
-    /* Royal gradients */
-    --gradient-royal: linear-gradient(135deg, hsl(var(--royal)), hsl(var(--royal-deep)));
-    --gradient-royal-gold: linear-gradient(135deg, hsl(var(--royal)), hsl(var(--gold)));
+    /* Feminine gradients */
+    --gradient-pink: linear-gradient(135deg, hsl(var(--pink)), hsl(var(--pink-deep)));
+    --gradient-purple: linear-gradient(135deg, hsl(var(--purple)), hsl(var(--purple-deep)));
+    --gradient-pink-purple: linear-gradient(135deg, hsl(var(--pink)), hsl(var(--purple)));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--royal)) 0%, hsl(var(--royal-deep)) 50%, hsl(var(--gold)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--pink)) 0%, hsl(var(--purple)) 50%, hsl(var(--purple-deep)) 100%);
+    --gradient-flower: linear-gradient(45deg, hsl(var(--rose)) 0%, hsl(var(--pink-light)) 50%, hsl(var(--purple-light)) 100%);
 
-    /* Royal shadows */
-    --shadow-royal: 0 10px 30px -10px hsl(var(--royal) / 0.3);
-    --shadow-elegant: 0 20px 40px -10px hsl(var(--royal) / 0.2);
-    --shadow-gold: 0 0 30px hsl(var(--gold) / 0.3);
+    /* Feminine shadows */
+    --shadow-pink: 0 10px 30px -10px hsl(var(--pink) / 0.3);
+    --shadow-purple: 0 10px 30px -10px hsl(var(--purple) / 0.3);
+    --shadow-elegant: 0 20px 40px -10px hsl(var(--pink) / 0.2);
+    --shadow-glow: 0 0 40px hsl(var(--pink-light) / 0.4);
+    --shadow-flower: 0 5px 20px hsl(var(--rose) / 0.3);
 
     /* Animations */
-    --transition-royal: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-flower: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --radius: 0.5rem;
 
@@ -123,5 +131,36 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  .bg-300\% {
+    background-size: 300% 300%;
+  }
+}
+
+@layer utilities {
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  .animate-shimmer {
+    background: linear-gradient(90deg, currentColor 0%, transparent 50%, currentColor 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+  
+  .flower-decoration {
+    position: relative;
+  }
+  
+  .flower-decoration::before {
+    content: '🌸';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    animation: float 3s ease-in-out infinite;
   }
 }

@@ -33,15 +33,19 @@ export default {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
-				royal: {
-					DEFAULT: 'hsl(var(--royal))',
-					deep: 'hsl(var(--royal-deep))',
-					light: 'hsl(var(--royal-light))'
+				pink: {
+					DEFAULT: 'hsl(var(--pink))',
+					light: 'hsl(var(--pink-light))',
+					deep: 'hsl(var(--pink-deep))'
 				},
-				gold: {
-					DEFAULT: 'hsl(var(--gold))',
-					light: 'hsl(var(--gold-light))',
-					dark: 'hsl(var(--gold-dark))'
+				purple: {
+					DEFAULT: 'hsl(var(--purple))',
+					light: 'hsl(var(--purple-light))',
+					deep: 'hsl(var(--purple-deep))'
+				},
+				rose: {
+					DEFAULT: 'hsl(var(--rose))',
+					deep: 'hsl(var(--rose-deep))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -95,11 +99,42 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-20px)' }
+				},
+				'bounce-gentle': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' }
+				},
+				'pulse-soft': {
+					'0%, 100%': { opacity: '1', transform: 'scale(1)' },
+					'50%': { opacity: '0.8', transform: 'scale(1.05)' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' }
+				},
+				'flower-bloom': {
+					'0%': { transform: 'scale(0) rotate(0deg)', opacity: '0' },
+					'50%': { transform: 'scale(1.1) rotate(180deg)', opacity: '0.8' },
+					'100%': { transform: 'scale(1) rotate(360deg)', opacity: '1' }
+				},
+				'petal-fall': {
+					'0%': { transform: 'translateY(-100vh) rotate(0deg)' },
+					'100%': { transform: 'translateY(100vh) rotate(360deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
+				'pulse-soft': 'pulse-soft 4s ease-in-out infinite',
+				'shimmer': 'shimmer 2s linear infinite',
+				'flower-bloom': 'flower-bloom 1s ease-out',
+				'petal-fall': 'petal-fall 10s linear infinite'
 			}
 		}
 	},
