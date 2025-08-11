@@ -78,7 +78,23 @@ const Index = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+        <header className="absolute top-0 left-0 w-full z-20">
+          <nav className="max-w-6xl mx-auto flex items-center justify-between p-4">
+            <a href="#home" className="flex items-center gap-3">
+              <img src="/lovable-uploads/577e0bfd-163b-47e1-8148-7939b501d14a.png" alt="Royalty Ladies logo" className="h-10 w-auto drop-shadow" />
+              <span className="sr-only">Royal Ladies</span>
+            </a>
+            <ul className="hidden md:flex items-center gap-6 text-white/90">
+              <li><a href="#about" className="story-link">About</a></li>
+              <li><a href="#convener" className="story-link">Convener</a></li>
+              <li><a href="#speakers" className="story-link">Speakers</a></li>
+              <li><a href="#features" className="story-link">Features</a></li>
+              <li><a href="#sponsorship" className="story-link">Sponsorship</a></li>
+              <li><a href="#registration" className="story-link">Register</a></li>
+            </ul>
+          </nav>
+        </header>
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('/lovable-uploads/0b7588ff-00bb-43f7-ab02-0ac0fe79410d.png')` }}
@@ -111,7 +127,7 @@ const Index = () => {
           </div>
           
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">
-            Theme: <span className="text-rose-deep">BECOMING</span>
+            Theme: <span className="text-white">BECOMING</span>
           </h2>
           <p className="text-lg md:text-xl font-semibold mb-2 italic">Phi 1:6.</p>
           <p className="text-lg md:text-xl mb-8 font-light">Becoming the woman God intended</p>
@@ -121,16 +137,19 @@ const Index = () => {
               variant="elegant" 
               size="xl"
               onClick={scrollToRegistration}
-              className="text-xl px-8 py-4 animate-bounce-gentle hover:animate-pulse-soft transform hover:scale-105 transition-all duration-300"
+              className="text-xl px-8 py-4 hover-scale animate-enter shadow-glow"
+              aria-label="Register Now"
             >
               Register Now
             </Button>
             <Button 
-              variant="outline" 
+              variant="elegant" 
               size="xl"
-              className="text-xl px-8 py-4 border-white text-white hover:bg-white hover:text-pink transform hover:scale-105 transition-all duration-300"
+              onClick={scrollToRegistration}
+              className="text-xl px-8 py-4 hover-scale animate-enter shadow-glow"
+              aria-label="Get your Event T-Shirt"
             >
-              Learn More
+              Get your Event T-Shirt
             </Button>
           </div>
         </div>
@@ -182,7 +201,7 @@ const Index = () => {
       </section>
 
       {/* About RLC Section */}
-      <section className="py-20 px-4">
+      <section id="about" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
@@ -245,7 +264,7 @@ const Index = () => {
       </section>
 
       {/* About the Convener Section */}
-      <section className="py-20 px-4 bg-muted">
+      <section id="convener" className="py-20 px-4 bg-muted">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
@@ -308,7 +327,7 @@ const Index = () => {
       </section>
 
       {/* Guest Speakers Section */}
-      <section className="py-20 px-4">
+      <section id="speakers" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
@@ -346,7 +365,7 @@ const Index = () => {
       </section>
 
       {/* Conference Features Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-muted to-background">
+      <section id="features" className="py-20 px-4 bg-gradient-to-b from-muted to-background">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
@@ -378,7 +397,7 @@ const Index = () => {
       </section>
 
       {/* Sponsorship Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-rose/5 to-purple-light/5">
+      <section id="sponsorship" className="py-20 px-4 bg-gradient-to-r from-rose/5 to-purple-light/5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
