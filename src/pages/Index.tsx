@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { RegistrationForm } from "@/components/RegistrationForm";
 import { Calendar, MapPin, Clock, Crown, Heart, ChefHat, GraduationCap, Music, Book, Users, Star, Award, Sparkles, Gift, Handshake } from "lucide-react";
-import heroBanner from "@/assets/hero-banner.jpg";
+import heroBanner from "@/assets/hero-banner.jpg"; // fallback image retained but overridden by uploaded image in hero background
 import guest1 from "@/assets/guest1.jpg";
 import guest2 from "@/assets/guest2.jpg";
 import guest3 from "@/assets/guest3.jpg";
@@ -81,7 +81,7 @@ const Index = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBanner})` }}
+          style={{ backgroundImage: `url('/lovable-uploads/0b7588ff-00bb-43f7-ab02-0ac0fe79410d.png')` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-pink/80 via-purple/70 to-purple-deep/60"></div>
           {/* 3D Flower decorations */}
@@ -94,7 +94,7 @@ const Index = () => {
         </div>
         
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4 animate-fade-in">
-          <div className="flex items-center justify-center mb-6">
+          <div className="flex items-center justify-center mb-4">
             <Crown className="w-16 h-16 text-rose-deep mr-4 animate-bounce-gentle" />
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-white via-rose-deep to-white bg-clip-text text-transparent animate-shimmer bg-300%">
               Royal Ladies Conference
@@ -102,14 +102,19 @@ const Index = () => {
             <Sparkles className="w-12 h-12 text-rose-deep ml-4 animate-pulse-soft" />
           </div>
           
+          <div className="inline-block px-4 py-1 mb-3 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm uppercase tracking-widest">
+            Royalty Conference 1.0
+          </div>
           <div className="flex items-center justify-center mb-6 text-xl md:text-2xl">
             <Calendar className="w-6 h-6 mr-2" />
             <span className="font-semibold">October 29th - November 2nd, 2025</span>
           </div>
           
-          <p className="text-xl md:text-2xl mb-8 font-light">
-            Where Royalty Meets Purpose - A Transformational Experience for Every Woman
-          </p>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">
+            Theme: <span className="text-rose-deep">BECOMING</span>
+          </h2>
+          <p className="text-lg md:text-xl font-semibold mb-2 italic">Phi 1:6.</p>
+          <p className="text-lg md:text-xl mb-8 font-light">Becoming the woman God intended</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
