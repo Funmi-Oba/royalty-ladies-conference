@@ -7,13 +7,24 @@ import guest1 from "@/assets/guest1.jpg";
 import guest2 from "@/assets/guest2.jpg";
 import guest3 from "@/assets/guest3.jpg";
 import convener from "@/assets/convener.jpg";
-
+import { useState } from "react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 const Index = () => {
+  const [shirtColor, setShirtColor] = useState<string>("Pink");
+  const [shirtSize, setShirtSize] = useState<string>("M");
+  const [wantCap, setWantCap] = useState<boolean>(false);
+  const [capColor, setCapColor] = useState<string>("Pink");
+
   const scrollToRegistration = () => {
     const registrationSection = document.getElementById('registration');
     registrationSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToPayment = () => {
+    const el = document.getElementById('payment');
+    el?.scrollIntoView({ behavior: 'smooth' });
+  };
   const guests = [
     {
       name: "Dr. Grace Adebayo",
@@ -79,7 +90,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-        <header className="absolute top-0 left-0 w-full z-20">
+        <header className="fixed top-0 left-0 w-full z-50 bg-background/50 backdrop-blur-md border-b border-white/10">
           <nav className="max-w-6xl mx-auto flex items-center justify-between p-4">
             <a href="#home" className="flex items-center gap-3">
               <img src="/lovable-uploads/577e0bfd-163b-47e1-8148-7939b501d14a.png" alt="Royalty Ladies logo" className="h-10 w-auto drop-shadow" />
@@ -90,6 +101,8 @@ const Index = () => {
               <li><a href="#convener" className="story-link">Convener</a></li>
               <li><a href="#speakers" className="story-link">Speakers</a></li>
               <li><a href="#features" className="story-link">Features</a></li>
+              <li><a href="#merch" className="story-link">Merch</a></li>
+              <li><a href="#payment" className="story-link">Payment</a></li>
               <li><a href="#sponsorship" className="story-link">Sponsorship</a></li>
               <li><a href="#registration" className="story-link">Register</a></li>
             </ul>
@@ -393,6 +406,154 @@ const Index = () => {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Merchandise Section */}
+      <section id="merch" className="py-20 px-4 bg-gradient-to-b from-background to-muted">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
+              Event Merch: T‑Shirts & Caps
+            </h2>
+            <p className="text-xl text-muted-foreground">Choose your preferred T‑shirt color and size, and optionally add a cap.</p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-10 mb-10">
+            {/* T‑Shirts Gallery */}
+            <Card className="border-pink/20 shadow-elegant animate-fade-in">
+              <CardHeader>
+                <CardTitle className="text-pink">T‑Shirt Gallery</CardTitle>
+                <CardDescription>Select your favorite color</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  <img src="/lovable-uploads/9c4c8975-d67c-47af-929b-e4ed02911cee.png" alt="RLC T‑Shirt Pink color" className="rounded-lg shadow hover-scale" />
+                  <img src="/lovable-uploads/d5f18021-4086-4495-a1a6-c58ab95f1dba.png" alt="RLC T‑Shirt Purple color" className="rounded-lg shadow hover-scale" />
+                  <img src="/lovable-uploads/39ac62ab-1587-4f35-9fb5-069759c50cf2.png" alt="RLC T‑Shirt Light Pink color" className="rounded-lg shadow hover-scale" />
+                  <img src="/lovable-uploads/aceefe2f-4a87-4cfa-954d-6c1d3d5828d9.png" alt="RLC T‑Shirt Black color" className="rounded-lg shadow hover-scale" />
+                  <img src="/lovable-uploads/d16f7a5e-2d55-4d3a-9d0e-03214e6db218.png" alt="RLC T‑Shirt White color" className="rounded-lg shadow hover-scale" />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Caps Gallery */}
+            <Card className="border-purple/20 shadow-elegant animate-fade-in">
+              <CardHeader>
+                <CardTitle className="text-purple">Face Cap Gallery</CardTitle>
+                <CardDescription>Optional add‑on</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-4">
+                  <img src="/lovable-uploads/938d0120-cc49-4f79-8679-8b275a583abe.png" alt="RLC Cap Pink color" className="rounded-lg shadow hover-scale" />
+                  <img src="/lovable-uploads/aee0adb1-250a-4719-98f1-f37e6769fdc6.png" alt="RLC Cap Black color" className="rounded-lg shadow hover-scale" />
+                  <img src="/lovable-uploads/bd038f02-7214-4e13-b884-a6c2e9d7ae43.png" alt="RLC Cap White color" className="rounded-lg shadow hover-scale" />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Selectors */}
+          <Card className="border-pink/20 shadow-elegant animate-fade-in">
+            <CardHeader>
+              <CardTitle className="text-pink">Customize Your Order</CardTitle>
+              <CardDescription>Pick T‑shirt color and size, and cap color if desired</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid sm:grid-cols-3 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="shirt-color">T‑Shirt Color</Label>
+                  <Select value={shirtColor} onValueChange={(v) => setShirtColor(v)}>
+                    <SelectTrigger id="shirt-color" className="w-full"><SelectValue placeholder="Select color" /></SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Pink">Pink</SelectItem>
+                      <SelectItem value="Purple">Purple</SelectItem>
+                      <SelectItem value="Light Pink">Light Pink</SelectItem>
+                      <SelectItem value="Black">Black</SelectItem>
+                      <SelectItem value="White">White</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="shirt-size">T‑Shirt Size</Label>
+                  <Select value={shirtSize} onValueChange={(v) => setShirtSize(v)}>
+                    <SelectTrigger id="shirt-size" className="w-full"><SelectValue placeholder="Select size" /></SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="S">S</SelectItem>
+                      <SelectItem value="M">M</SelectItem>
+                      <SelectItem value="L">L</SelectItem>
+                      <SelectItem value="XL">XL</SelectItem>
+                      <SelectItem value="2XL">2XL</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="cap-color">Cap (optional)</Label>
+                  <Select value={wantCap ? capColor : "None"} onValueChange={(v) => { if (v === "None") { setWantCap(false); } else { setWantCap(true); setCapColor(v); } }}>
+                    <SelectTrigger id="cap-color" className="w-full"><SelectValue placeholder="Select cap color" /></SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="None">No Cap</SelectItem>
+                      <SelectItem value="Pink">Pink</SelectItem>
+                      <SelectItem value="Black">Black</SelectItem>
+                      <SelectItem value="White">White</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="mt-8 flex justify-center">
+                <Button variant="elegant" size="xl" className="px-10 py-4 hover-scale shadow-glow" onClick={scrollToPayment}>
+                  Order Now
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Payment Section */}
+      <section id="payment" className="py-20 px-4 bg-muted">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
+              Make Your Payment
+            </h2>
+            <p className="text-muted-foreground">Transfer and confirm via WhatsApp with your receipt.</p>
+          </div>
+
+          <Card className="border-purple/20 shadow-elegant animate-fade-in">
+            <CardHeader>
+              <CardTitle className="text-purple">Account Details</CardTitle>
+              <CardDescription>Please pay using the account below, then confirm.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid sm:grid-cols-3 gap-4 text-lg">
+                <div className="p-4 rounded-lg bg-accent/40"><span className="block text-sm text-muted-foreground">Account No</span>1308014283</div>
+                <div className="p-4 rounded-lg bg-accent/40"><span className="block text-sm text-muted-foreground">Account Name</span>Royalty Ladies</div>
+                <div className="p-4 rounded-lg bg-accent/40"><span className="block text-sm text-muted-foreground">Bank</span>Providus Bank</div>
+              </div>
+
+              <div className="p-4 rounded-lg bg-background border">
+                <p className="text-sm text-muted-foreground mb-1">Order Summary</p>
+                <p className="font-medium">T‑Shirt: {shirtColor} • Size: {shirtSize}{wantCap ? ` • Cap: ${capColor}` : ''}</p>
+                <p className="text-xs text-muted-foreground">Cap size is general.</p>
+              </div>
+
+              <div className="pt-2 flex justify-center">
+                <Button
+                  variant="elegant"
+                  size="lg"
+                  className="px-8 py-3 hover-scale shadow-glow"
+                  onClick={() => {
+                    const summary = `RLC Merch Order%0A- T-Shirt: ${shirtColor}%0A- Size: ${shirtSize}${wantCap ? `%0A- Cap: ${capColor}` : ''}%0A----%0AI have made my payment to:%0AAccount: 1308014283 (Royalty Ladies, Providus Bank).%0APlease find my receipt attached.`;
+                    window.open(`https://wa.me/?text=${summary}`, '_blank');
+                  }}
+                >
+                  I have made my payment
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
