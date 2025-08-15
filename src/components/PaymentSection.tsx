@@ -44,32 +44,34 @@ I have made payment for my Royal Ladies Conference merchandise order. Please fin
           </p>
         </div>
 
-        {/* Order Summary */}
-        <Card className="border-purple/20 shadow-elegant hover:shadow-glow transition-all duration-300 animate-fade-in max-w-2xl mx-auto mb-8">
-          <CardHeader className="text-center">
-            <div className="w-16 h-16 bg-gradient-to-r from-purple to-pink rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
-              <ShoppingBag className="w-8 h-8 text-white" />
-            </div>
-            <CardTitle className="text-2xl text-purple">Order Summary</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="p-4 bg-purple/10 rounded-lg border border-purple/20">
-              <h3 className="font-semibold text-purple mb-2">T-Shirt</h3>
-              <p className="text-sm text-gray-600">Color: <span className="font-medium">{orderData.shirtColor}</span></p>
-              <p className="text-sm text-gray-600">Size: <span className="font-medium">{orderData.shirtSize}</span></p>
-            </div>
-            
-            {orderData.wantCap && (
-              <div className="p-4 bg-pink/10 rounded-lg border border-pink/20">
-                <h3 className="font-semibold text-pink mb-2">Cap</h3>
-                <p className="text-sm text-gray-600">Color: <span className="font-medium">{orderData.capColor}</span></p>
-                <p className="text-sm text-gray-600">Size: <span className="font-medium">One Size Fits All</span></p>
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Order Summary */}
+          <Card className="border-purple/20 shadow-elegant hover:shadow-glow transition-all duration-300 animate-fade-in">
+            <CardHeader className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple to-pink rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
+                <ShoppingBag className="w-8 h-8 text-white" />
               </div>
-            )}
-          </CardContent>
-        </Card>
+              <CardTitle className="text-2xl text-purple">Order Summary</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="p-4 bg-purple/10 rounded-lg border border-purple/20">
+                <h3 className="font-semibold text-purple mb-2">T-Shirt</h3>
+                <p className="text-sm text-gray-600">Color: <span className="font-medium">{orderData.shirtColor}</span></p>
+                <p className="text-sm text-gray-600">Size: <span className="font-medium">{orderData.shirtSize}</span></p>
+              </div>
+              
+              {orderData.wantCap && (
+                <div className="p-4 bg-pink/10 rounded-lg border border-pink/20">
+                  <h3 className="font-semibold text-pink mb-2">Cap</h3>
+                  <p className="text-sm text-gray-600">Color: <span className="font-medium">{orderData.capColor}</span></p>
+                  <p className="text-sm text-gray-600">Size: <span className="font-medium">One Size Fits All</span></p>
+                </div>
+              )}
+            </CardContent>
+          </Card>
 
-        <Card className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 animate-fade-in max-w-2xl mx-auto">
+          {/* Bank Payment Details */}
+          <Card className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 animate-fade-in">
           <CardHeader className="text-center">
             <div className="w-16 h-16 bg-gradient-to-r from-pink to-purple rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
               <CreditCard className="w-8 h-8 text-white" />
@@ -138,7 +140,8 @@ I have made payment for my Royal Ladies Conference merchandise order. Please fin
               </Button>
             </div>
           </CardContent>
-        </Card>
+          </Card>
+        </div>
       </div>
     </section>
   );
