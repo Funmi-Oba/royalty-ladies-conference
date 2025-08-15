@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { Gift } from "lucide-react";
+import { Gift, Plus, Minus } from "lucide-react";
 import { OrderData } from "@/pages/Index";
 
 interface MerchandiseSectionProps {
@@ -13,7 +13,7 @@ interface MerchandiseSectionProps {
 }
 
 const MerchandiseSection = ({ scrollToPayment, orderData, setOrderData }: MerchandiseSectionProps) => {
-  const { shirtColor, shirtSize, wantCap, capColor } = orderData;
+  const { shirtColor, shirtSize, shirtQuantity, wantCap, capColor, capQuantity } = orderData;
 
   return (
     <section id="merch" className="py-20 px-4">
@@ -33,6 +33,7 @@ const MerchandiseSection = ({ scrollToPayment, orderData, setOrderData }: Mercha
             <CardHeader className="text-center">
               <Gift className="w-12 h-12 text-pink mx-auto mb-4 animate-bounce-gentle" />
               <CardTitle className="text-2xl text-pink">Conference T-Shirt</CardTitle>
+              <p className="text-xl font-bold text-pink">₦6,000 each</p>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-3 gap-4">
@@ -76,6 +77,29 @@ const MerchandiseSection = ({ scrollToPayment, orderData, setOrderData }: Mercha
                     </SelectContent>
                   </Select>
                 </div>
+
+                <div>
+                  <Label className="text-sm font-medium">Quantity</Label>
+                  <div className="flex items-center gap-3 mt-2">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => setOrderData({...orderData, shirtQuantity: Math.max(1, shirtQuantity - 1)})}
+                      className="h-8 w-8 p-0"
+                    >
+                      <Minus className="w-4 h-4" />
+                    </Button>
+                    <span className="text-lg font-semibold w-8 text-center">{shirtQuantity}</span>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => setOrderData({...orderData, shirtQuantity: shirtQuantity + 1})}
+                      className="h-8 w-8 p-0"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -85,6 +109,7 @@ const MerchandiseSection = ({ scrollToPayment, orderData, setOrderData }: Mercha
             <CardHeader className="text-center">
               <Gift className="w-12 h-12 text-purple mx-auto mb-4 animate-bounce-gentle" />
               <CardTitle className="text-2xl text-purple">Conference Cap</CardTitle>
+              <p className="text-xl font-bold text-purple">₦3,000 each</p>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-3 gap-4">
@@ -106,19 +131,44 @@ const MerchandiseSection = ({ scrollToPayment, orderData, setOrderData }: Mercha
                 </div>
 
                 {wantCap && (
-                  <div>
-                    <Label htmlFor="cap-color" className="text-sm font-medium">Select Cap Color</Label>
-                    <Select value={capColor} onValueChange={(value) => setOrderData({...orderData, capColor: value})}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Choose color" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="Pink">Pink</SelectItem>
-                        <SelectItem value="Purple">Purple</SelectItem>
-                        <SelectItem value="White">White</SelectItem>
-                        <SelectItem value="Black">Black</SelectItem>
-                      </SelectContent>
-                    </Select>
+                  <div className="space-y-4">
+                    <div>
+                      <Label htmlFor="cap-color" className="text-sm font-medium">Select Cap Color</Label>
+                      <Select value={capColor} onValueChange={(value) => setOrderData({...orderData, capColor: value})}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Choose color" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Pink">Pink</SelectItem>
+                          <SelectItem value="Purple">Purple</SelectItem>
+                          <SelectItem value="White">White</SelectItem>
+                          <SelectItem value="Black">Black</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <Label className="text-sm font-medium">Quantity</Label>
+                      <div className="flex items-center gap-3 mt-2">
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => setOrderData({...orderData, capQuantity: Math.max(1, capQuantity - 1)})}
+                          className="h-8 w-8 p-0"
+                        >
+                          <Minus className="w-4 h-4" />
+                        </Button>
+                        <span className="text-lg font-semibold w-8 text-center">{capQuantity}</span>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => setOrderData({...orderData, capQuantity: capQuantity + 1})}
+                          className="h-8 w-8 p-0"
+                        >
+                          <Plus className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 )}
                 

@@ -11,6 +11,10 @@ interface PaymentSectionProps {
 
 const PaymentSection = ({ orderData }: PaymentSectionProps) => {
   const { toast } = useToast();
+  
+  const shirtTotal = orderData.shirtQuantity * 6000;
+  const capTotal = orderData.wantCap ? orderData.capQuantity * 3000 : 0;
+  const grandTotal = shirtTotal + capTotal;
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -23,8 +27,10 @@ const PaymentSection = ({ orderData }: PaymentSectionProps) => {
   const handleWhatsAppConfirmation = () => {
     const orderSummary = `
 Order Summary:
-- T-shirt: ${orderData.shirtColor} (Size: ${orderData.shirtSize})${orderData.wantCap ? `
-- Cap: ${orderData.capColor}` : ''}
+- T-shirt: ${orderData.shirtColor} (Size: ${orderData.shirtSize}) x${orderData.shirtQuantity} = ₦${shirtTotal.toLocaleString()}${orderData.wantCap ? `
+- Cap: ${orderData.capColor} x${orderData.capQuantity} = ₦${capTotal.toLocaleString()}` : ''}
+
+Total Amount: ₦${grandTotal.toLocaleString()}
 
 I have made payment for my Royal Ladies Conference merchandise order. Please find my payment receipt attached for confirmation.`;
     
@@ -58,6 +64,8 @@ I have made payment for my Royal Ladies Conference merchandise order. Please fin
                 <h3 className="font-semibold text-purple mb-2">T-Shirt</h3>
                 <p className="text-sm text-gray-600">Color: <span className="font-medium">{orderData.shirtColor}</span></p>
                 <p className="text-sm text-gray-600">Size: <span className="font-medium">{orderData.shirtSize}</span></p>
+                <p className="text-sm text-gray-600">Quantity: <span className="font-medium">{orderData.shirtQuantity}</span></p>
+                <p className="text-sm text-gray-600">Price: <span className="font-medium">₦{shirtTotal.toLocaleString()}</span></p>
               </div>
               
               {orderData.wantCap && (
@@ -65,8 +73,15 @@ I have made payment for my Royal Ladies Conference merchandise order. Please fin
                   <h3 className="font-semibold text-pink mb-2">Cap</h3>
                   <p className="text-sm text-gray-600">Color: <span className="font-medium">{orderData.capColor}</span></p>
                   <p className="text-sm text-gray-600">Size: <span className="font-medium">One Size Fits All</span></p>
+                  <p className="text-sm text-gray-600">Quantity: <span className="font-medium">{orderData.capQuantity}</span></p>
+                  <p className="text-sm text-gray-600">Price: <span className="font-medium">₦{capTotal.toLocaleString()}</span></p>
                 </div>
               )}
+              
+              <div className="p-4 bg-gradient-to-r from-purple/10 to-pink/10 rounded-lg border border-purple/20">
+                <h3 className="font-bold text-lg text-purple">Total Amount</h3>
+                <p className="text-2xl font-bold text-purple">₦{grandTotal.toLocaleString()}</p>
+              </div>
             </CardContent>
           </Card>
 

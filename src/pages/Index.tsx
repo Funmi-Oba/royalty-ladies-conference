@@ -16,16 +16,20 @@ import Footer from "@/components/Footer";
 export interface OrderData {
   shirtColor: string;
   shirtSize: string;
+  shirtQuantity: number;
   wantCap: boolean;
   capColor: string;
+  capQuantity: number;
 }
 
 const Index = () => {
   const [orderData, setOrderData] = useState<OrderData>({
     shirtColor: "Deep Pink",
     shirtSize: "M",
+    shirtQuantity: 1,
     wantCap: false,
-    capColor: "Pink"
+    capColor: "Pink",
+    capQuantity: 1
   });
 
   const scrollToRegistration = () => {
