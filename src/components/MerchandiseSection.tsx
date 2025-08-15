@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { Gift } from "lucide-react";
+import { OrderData } from "@/pages/Index";
 
 interface MerchandiseSectionProps {
   scrollToPayment: () => void;
+  orderData: OrderData;
+  setOrderData: (data: OrderData) => void;
 }
 
-const MerchandiseSection = ({ scrollToPayment }: MerchandiseSectionProps) => {
-  const [shirtColor, setShirtColor] = useState<string>("Pink");
-  const [shirtSize, setShirtSize] = useState<string>("M");
-  const [wantCap, setWantCap] = useState<boolean>(false);
-  const [capColor, setCapColor] = useState<string>("Pink");
+const MerchandiseSection = ({ scrollToPayment, orderData, setOrderData }: MerchandiseSectionProps) => {
+  const { shirtColor, shirtSize, wantCap, capColor } = orderData;
 
   return (
     <section id="merch" className="py-20 px-4">
@@ -46,7 +46,7 @@ const MerchandiseSection = ({ scrollToPayment }: MerchandiseSectionProps) => {
               <div className="space-y-4">
                 <div>
                   <Label htmlFor="shirt-color" className="text-sm font-medium">Select Color</Label>
-                  <Select value={shirtColor} onValueChange={setShirtColor}>
+                  <Select value={shirtColor} onValueChange={(value) => setOrderData({...orderData, shirtColor: value})}>
                     <SelectTrigger>
                       <SelectValue placeholder="Choose color" />
                     </SelectTrigger>
@@ -62,7 +62,7 @@ const MerchandiseSection = ({ scrollToPayment }: MerchandiseSectionProps) => {
 
                 <div>
                   <Label htmlFor="shirt-size" className="text-sm font-medium">Select Size</Label>
-                  <Select value={shirtSize} onValueChange={setShirtSize}>
+                  <Select value={shirtSize} onValueChange={(value) => setOrderData({...orderData, shirtSize: value})}>
                     <SelectTrigger>
                       <SelectValue placeholder="Choose size" />
                     </SelectTrigger>
@@ -95,20 +95,20 @@ const MerchandiseSection = ({ scrollToPayment }: MerchandiseSectionProps) => {
               
               <div className="space-y-4">
                 <div className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    id="want-cap"
-                    checked={wantCap}
-                    onChange={(e) => setWantCap(e.target.checked)}
-                    className="rounded border-gray-300"
-                  />
+                   <input
+                     type="checkbox"
+                     id="want-cap"
+                     checked={wantCap}
+                     onChange={(e) => setOrderData({...orderData, wantCap: e.target.checked})}
+                     className="rounded border-gray-300"
+                   />
                   <Label htmlFor="want-cap" className="text-sm font-medium">I want a cap</Label>
                 </div>
 
                 {wantCap && (
                   <div>
                     <Label htmlFor="cap-color" className="text-sm font-medium">Select Cap Color</Label>
-                    <Select value={capColor} onValueChange={setCapColor}>
+                    <Select value={capColor} onValueChange={(value) => setOrderData({...orderData, capColor: value})}>
                       <SelectTrigger>
                         <SelectValue placeholder="Choose color" />
                       </SelectTrigger>

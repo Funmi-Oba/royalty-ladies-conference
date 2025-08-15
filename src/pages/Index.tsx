@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import HeaderNav from "@/components/HeaderNav";
 import FallingPetals from "@/components/FallingPetals";
 import Hero from "@/components/Hero";
@@ -12,7 +13,21 @@ import SponsorshipSection from "@/components/SponsorshipSection";
 import RegistrationSection from "@/components/RegistrationSection";
 import Footer from "@/components/Footer";
 
+export interface OrderData {
+  shirtColor: string;
+  shirtSize: string;
+  wantCap: boolean;
+  capColor: string;
+}
+
 const Index = () => {
+  const [orderData, setOrderData] = useState<OrderData>({
+    shirtColor: "Deep Pink",
+    shirtSize: "M",
+    wantCap: false,
+    capColor: "Pink"
+  });
+
   const scrollToRegistration = () => {
     const registrationSection = document.getElementById('registration');
     registrationSection?.scrollIntoView({ behavior: 'smooth' });
@@ -33,8 +48,12 @@ const Index = () => {
       <ConvenerSection />
       <SpeakersSection />
       <FeaturesSection />
-      <MerchandiseSection scrollToPayment={scrollToPayment} />
-      <PaymentSection />
+      <MerchandiseSection 
+        scrollToPayment={scrollToPayment} 
+        orderData={orderData}
+        setOrderData={setOrderData}
+      />
+      <PaymentSection orderData={orderData} />
       <SponsorshipSection />
       <RegistrationSection />
       <Footer />

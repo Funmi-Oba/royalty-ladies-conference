@@ -1,10 +1,15 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Copy, CreditCard } from "lucide-react";
+import { Copy, CreditCard, ShoppingBag } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { OrderData } from "@/pages/Index";
 
-const PaymentSection = () => {
+interface PaymentSectionProps {
+  orderData: OrderData;
+}
+
+const PaymentSection = ({ orderData }: PaymentSectionProps) => {
   const { toast } = useToast();
 
   const copyToClipboard = (text: string, label: string) => {
@@ -16,7 +21,14 @@ const PaymentSection = () => {
   };
 
   const handleWhatsAppConfirmation = () => {
-    const message = encodeURIComponent("Hi! I have made payment for my Royal Ladies Conference merchandise order. Please find my payment receipt attached for confirmation.");
+    const orderSummary = `
+Order Summary:
+- T-shirt: ${orderData.shirtColor} (Size: ${orderData.shirtSize})${orderData.wantCap ? `
+- Cap: ${orderData.capColor}` : ''}
+
+I have made payment for my Royal Ladies Conference merchandise order. Please find my payment receipt attached for confirmation.`;
+    
+    const message = encodeURIComponent(orderSummary);
     window.open(`https://wa.me/?text=${message}`, '_blank');
   };
 
@@ -31,6 +43,31 @@ const PaymentSection = () => {
             Complete your merchandise order by making payment to the account below
           </p>
         </div>
+
+        {/* Order Summary */}
+        <Card className="border-purple/20 shadow-elegant hover:shadow-glow transition-all duration-300 animate-fade-in max-w-2xl mx-auto mb-8">
+          <CardHeader className="text-center">
+            <div className="w-16 h-16 bg-gradient-to-r from-purple to-pink rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
+              <ShoppingBag className="w-8 h-8 text-white" />
+            </div>
+            <CardTitle className="text-2xl text-purple">Order Summary</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="p-4 bg-purple/10 rounded-lg border border-purple/20">
+              <h3 className="font-semibold text-purple mb-2">T-Shirt</h3>
+              <p className="text-sm text-gray-600">Color: <span className="font-medium">{orderData.shirtColor}</span></p>
+              <p className="text-sm text-gray-600">Size: <span className="font-medium">{orderData.shirtSize}</span></p>
+            </div>
+            
+            {orderData.wantCap && (
+              <div className="p-4 bg-pink/10 rounded-lg border border-pink/20">
+                <h3 className="font-semibold text-pink mb-2">Cap</h3>
+                <p className="text-sm text-gray-600">Color: <span className="font-medium">{orderData.capColor}</span></p>
+                <p className="text-sm text-gray-600">Size: <span className="font-medium">One Size Fits All</span></p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
 
         <Card className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 animate-fade-in max-w-2xl mx-auto">
           <CardHeader className="text-center">
