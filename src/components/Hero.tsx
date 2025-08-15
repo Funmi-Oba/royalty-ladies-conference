@@ -10,10 +10,10 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('/lovable-uploads/0b7588ff-00bb-43f7-ab02-0ac0fe79410d.png')` }}
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url('/images/royalty-ladies.png')` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-pink/80 via-purple/70 to-purple-deep/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-pink/50 via-purple/50 to-pink-deep/50"></div>
         {/* 3D Flower decorations */}
         <div className="absolute top-20 left-10 w-24 h-24 animate-float">
           <div className="w-full h-full bg-gradient-to-br from-rose to-pink-light rounded-full opacity-30 animate-pulse-soft"></div>
@@ -32,10 +32,10 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
           <Sparkles className="w-12 h-12 text-rose-deep ml-4 animate-pulse-soft" />
         </div>
         
-        <div className="inline-block px-4 py-1 mb-3 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm uppercase tracking-widest">
-          Royalty Conference 1.0
+        <div className="inline-block px-4 py-1 mb-3 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-2xl uppercase tracking-widest">
+          Royalty Ladies Conference 1.0
         </div>
-        <div className="flex items-center justify-center mb-6 text-xl md:text-2xl">
+        <div className="flex items-center justify-center mb-6 text-xl md:text-xl">
           <Calendar className="w-6 h-6 mr-2" />
           <span className="font-semibold">October 29th - November 2nd, 2025</span>
         </div>
@@ -51,7 +51,7 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
             variant="elegant" 
             size="xl"
             onClick={scrollToRegistration}
-            className="text-xl px-8 py-4 hover-scale animate-enter shadow-glow"
+            className="text-xl px-8 py-4 hover-scale bg-purple text-white animate-enter shadow-glow"
             aria-label="Register Now"
           >
             Register Now
@@ -60,7 +60,7 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
             variant="elegant" 
             size="xl"
             onClick={scrollToRegistration}
-            className="text-xl px-8 py-4 hover-scale animate-enter shadow-glow"
+            className="text-xl px-8 py-4 hover-scale bg-pink text-white animate-enter shadow-glow"
             aria-label="Get your Event T-Shirt"
           >
             Get your Event T-Shirt

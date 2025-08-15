@@ -2,13 +2,13 @@ import React from 'react';
 
 const HeaderNav = () => {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-background/50 backdrop-blur-md border-b border-white/10">
-      <nav className="max-w-6xl mx-auto flex items-center justify-between p-4">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white backdrop-blur-md border-b border-white/10">
+      <nav className="max-w-6xl mx-auto flex items-center justify-between p-2">
         <a href="#home" className="flex items-center gap-3">
-          <img src="/lovable-uploads/577e0bfd-163b-47e1-8148-7939b501d14a.png" alt="Royalty Ladies logo" className="h-10 w-auto drop-shadow" />
+          <img src="/images/logo.png" alt="Royalty Ladies logo" className="h-16 w-auto drop-shadow" />
           <span className="sr-only">Royal Ladies</span>
         </a>
-        <ul className="hidden md:flex items-center gap-6 text-white/90">
+        <ul className="hidden md:flex items-center gap-6 text-purple/90">
           <li><a href="#about" className="story-link">About</a></li>
           <li><a href="#convener" className="story-link">Convener</a></li>
           <li><a href="#speakers" className="story-link">Speakers</a></li>

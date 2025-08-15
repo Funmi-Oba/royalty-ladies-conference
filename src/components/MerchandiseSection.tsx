@@ -35,9 +35,12 @@ const MerchandiseSection = ({ scrollToPayment }: MerchandiseSectionProps) => {
               <CardTitle className="text-2xl text-pink">Conference T-Shirt</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <img src="/lovable-uploads/d16f7a5e-2d55-4d3a-9d0e-03214e6db218.png" alt="T-shirt front" className="rounded-lg shadow-md" />
-                <img src="/lovable-uploads/938d0120-cc49-4f79-8679-8b275a583abe.png" alt="T-shirt back" className="rounded-lg shadow-md" />
+              <div className="grid grid-cols-3 gap-4">
+                <img src="/images/brands/dpink-shirt.png" alt="Deep Pink T-shirt" className="rounded-lg shadow-md" />
+                <img src="/images/brands/white-shirt.png" alt="White T-shirt" className="rounded-lg shadow-md" />
+                 <img src="/images/brands/black-shirt.png" alt="Black T-shirt" className="rounded-lg shadow-md" />
+                 <img src="/images/brands/lpink-shirt.png" alt="Light Pink T-shirt" className="rounded-lg shadow-md" />
+                 <img src="/images/brands/purple-shirt.png" alt="Purple T-shirt" className="rounded-lg shadow-md" />
               </div>
               
               <div className="space-y-4">
@@ -48,10 +51,11 @@ const MerchandiseSection = ({ scrollToPayment }: MerchandiseSectionProps) => {
                       <SelectValue placeholder="Choose color" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Pink">Pink</SelectItem>
+                      <SelectItem value="Deep Pink">Deep Pink</SelectItem>
                       <SelectItem value="Purple">Purple</SelectItem>
                       <SelectItem value="White">White</SelectItem>
                       <SelectItem value="Black">Black</SelectItem>
+                      <SelectItem value="Light Pink">Light Pink</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -83,9 +87,10 @@ const MerchandiseSection = ({ scrollToPayment }: MerchandiseSectionProps) => {
               <CardTitle className="text-2xl text-purple">Conference Cap</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <img src="/lovable-uploads/aee0adb1-250a-4719-98f1-f37e6769fdc6.png" alt="Cap front" className="rounded-lg shadow-md" />
-                <img src="/lovable-uploads/bd038f02-7214-4e13-b884-a6c2e9d7ae43.png" alt="Cap side" className="rounded-lg shadow-md" />
+              <div className="grid grid-cols-3 gap-4">
+                <img src="/images/brands/black-cap.png" alt="Black cap" className="rounded-lg shadow-md" />
+                <img src="/images/brands/white-cap.png" alt="White Cap" className="rounded-lg shadow-md" />
+                <img src="/images/brands/pink-cap.png" alt="Pink Cap" className="rounded-lg shadow-md" />
               </div>
               
               <div className="space-y-4">
@@ -128,7 +133,7 @@ const MerchandiseSection = ({ scrollToPayment }: MerchandiseSectionProps) => {
             variant="elegant" 
             size="xl"
             onClick={scrollToPayment}
-            className="text-xl px-12 py-4 hover-scale animate-enter shadow-glow"
+            className="text-xl text-white bg-pink px-12 py-4 hover-scale animate-enter shadow-glow"
           >
             Order Now
           </Button>

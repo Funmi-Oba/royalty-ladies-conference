@@ -95,7 +95,7 @@ const PaymentSection = () => {
                 variant="elegant" 
                 size="lg"
                 onClick={handleWhatsAppConfirmation}
-                className="text-lg px-8 py-3 hover-scale animate-enter shadow-glow"
+                className="text-lg bg-purple text-white px-8 py-3 hover-scale animate-enter shadow-glow"
               >
                 I have made my payment
               </Button>
