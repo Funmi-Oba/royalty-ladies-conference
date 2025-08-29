@@ -6,7 +6,7 @@ const FallingPetals = () => {
       {[...Array(15)].map((_, i) => (
         <div
           key={i}
-          className="absolute w-4 h-4 opacity-20 animate-petal-fall"
+          className="absolute w-4 h-4 opacity-50 animate-petal-fall"
           style={{
             left: `${Math.random() * 100}%`,
             animationDelay: `${Math.random() * 10}s`,

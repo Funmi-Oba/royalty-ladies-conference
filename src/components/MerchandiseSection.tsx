@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { Gift, Plus, Minus } from "lucide-react";
+import { Gift, Plus, Minus, Shirt } from "lucide-react";
 import { OrderData } from "@/pages/Index";
 
 interface MerchandiseSectionProps {
@@ -16,11 +16,11 @@ const MerchandiseSection = ({ scrollToPayment, orderData, setOrderData }: Mercha
   const { shirtColor, shirtSize, shirtQuantity, wantCap, capColor, capQuantity } = orderData;
 
   return (
-    <section id="merch" className="py-20 px-4">
+    <section id="merch" className="py-10 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
-            Conference Merchandise
+        <div className="text-center mb-6">
+          <h2 className="text-3xl pb-2 md:text-4xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer ">
+         Get Your RLC Branded Material
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Get your exclusive Royal Ladies Conference T-shirt and cap to commemorate this special event
@@ -31,7 +31,7 @@ const MerchandiseSection = ({ scrollToPayment, orderData, setOrderData }: Mercha
           {/* T-shirt Section */}
           <Card className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 animate-fade-in">
             <CardHeader className="text-center">
-              <Gift className="w-12 h-12 text-pink mx-auto mb-4 animate-bounce-gentle" />
+              <Shirt className="w-12 h-12 text-pink mx-auto mb-4 animate-bounce-gentle" />
               <CardTitle className="text-2xl text-pink">Conference T-Shirt</CardTitle>
               <p className="text-xl font-bold text-pink">₦6,000 each</p>
             </CardHeader>

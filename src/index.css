@@ -143,13 +143,13 @@
     @apply transition-transform duration-200 hover:scale-105;
   }
   
+  
   .animate-shimmer {
-    background: linear-gradient(90deg, currentColor 0%, transparent 50%, currentColor 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: shimmer 2s ease-in-out infinite;
-  }
+  background-size: 200% auto; /* allow room for movement */
+  animation: shimmer 3s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
   
   .flower-decoration {
     position: relative;
@@ -160,7 +160,7 @@
     position: absolute;
     top: -10px;
     right: -10px;
-    font-size: 1.5rem;
+    font-size: 50px;
     animation: float 3s ease-in-out infinite;
   }
 }

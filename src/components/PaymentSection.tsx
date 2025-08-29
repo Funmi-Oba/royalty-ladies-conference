@@ -32,17 +32,19 @@ Order Summary:
 
 Total Amount: ₦${grandTotal.toLocaleString()}
 
-I have made payment for my Royal Ladies Conference merchandise order. Please find my payment receipt attached for confirmation.`;
+Hello, my name is [Your Name].
+
+I have made payment for my Royalty Ladies Conference Merch. Please find my payment receipt attached for confirmation.`;
     
     const message = encodeURIComponent(orderSummary);
-    window.open(`https://wa.me/?text=${message}`, '_blank');
+    window.open(`https://wa.me/2349076022592?text=${message}`, '_blank');
   };
 
   return (
-    <section id="payment" className="py-20 px-4 bg-muted">
+    <section id="payment" className="py-10 px-4 bg-muted">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl pb-2 md:text-4xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent animate-shimmer mb-4" >
             Payment Information
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -115,14 +117,7 @@ I have made payment for my Royal Ladies Conference merchandise order. Please fin
                   <p className="font-medium text-sm text-gray-600">Account Name</p>
                   <p className="text-xl font-bold text-purple">Royalty Ladies</p>
                 </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => copyToClipboard("Royalty Ladies", "Account name")}
-                  className="hover:bg-purple/10"
-                >
-                  <Copy className="w-4 h-4" />
-                </Button>
+                
               </div>
 
               <div className="flex justify-between items-center p-4 bg-pink/10 rounded-lg border border-pink/20">
@@ -130,14 +125,7 @@ I have made payment for my Royal Ladies Conference merchandise order. Please fin
                   <p className="font-medium text-sm text-gray-600">Bank Name</p>
                   <p className="text-xl font-bold text-pink">Providus Bank</p>
                 </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => copyToClipboard("Providus Bank", "Bank name")}
-                  className="hover:bg-pink/10"
-                >
-                  <Copy className="w-4 h-4" />
-                </Button>
+              
               </div>
             </div>
 

@@ -2,10 +2,22 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
 export function RegistrationForm() {
@@ -22,8 +34,6 @@ export function RegistrationForm() {
     level: "",
     hearAbout: "",
     schoolFellowshipName: "",
-    schoolDepartment: "",
-    schoolLevel: "",
     interestedInSkills: "",
     skillType: "",
     expectations: "",
@@ -32,10 +42,10 @@ export function RegistrationForm() {
   const [showSchoolFields, setShowSchoolFields] = useState(false);
   const [showSkillsField, setShowSkillsField] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validation
+
+    // Email validation
     if (formData.email !== formData.confirmEmail) {
       toast({
         title: "Email Mismatch",
@@ -45,12 +55,51 @@ export function RegistrationForm() {
       return;
     }
 
-    toast({
-      title: "Registration Successful!",
-      description: "Thank you for registering for Royal Ladies Conference 2025.",
-    });
-    
-    console.log("Form submitted:", formData);
+    try {
+      const res = await fetch("http://localhost:5000/api/submitForm", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData), // send raw state, backend maps to Airtable
+      });
+
+      if (res.ok) {
+        toast({
+          title: "Registration Successful!",
+          description:
+            "Thank you for registering for Royalty Ladies Conference 2025. We can't wait to see you there!",
+        });
+        setFormData({
+          fullName: "",
+          phone: "",
+          email: "",
+          confirmEmail: "",
+          occupation: "",
+          isUndergraduate: "",
+          school: "",
+          department: "",
+          level: "",
+          hearAbout: "",
+          schoolFellowshipName: "",
+          interestedInSkills: "",
+          skillType: "",
+          expectations: "",
+        });
+        setShowSchoolFields(false);
+        setShowSkillsField(false);
+      } else {
+        toast({
+          title: "Error",
+          description: "Something went wrong, please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to submit form. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleHearAboutChange = (value: string) => {
@@ -66,11 +115,12 @@ export function RegistrationForm() {
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader className="text-center">
-        <CardTitle className="text-3xl font-bold bg-gradient-to-r from-royal to-gold bg-clip-text text-transparent">
-          Register for RLC 2025
+        <CardTitle className="text-3xl pb-2 font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent animate-shimmer mb-4">
+          Fill the Form to Register
         </CardTitle>
         <CardDescription className="text-lg">
-          Join us for an extraordinary experience of transformation and empowerment
+          Join us for an extraordinary experience of transformation and
+          empowerment
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -82,7 +132,9 @@ export function RegistrationForm() {
               <Input
                 id="fullName"
                 value={formData.fullName}
-                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, fullName: e.target.value })
+                }
                 required
                 className="border-royal/20 focus:border-royal"
               />
@@ -93,7 +145,9 @@ export function RegistrationForm() {
                 id="phone"
                 type="tel"
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
                 required
                 className="border-royal/20 focus:border-royal"
               />
@@ -107,7 +161,9 @@ export function RegistrationForm() {
                 id="email"
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
                 className="border-royal/20 focus:border-royal"
               />
@@ -118,7 +174,9 @@ export function RegistrationForm() {
                 id="confirmEmail"
                 type="email"
                 value={formData.confirmEmail}
-                onChange={(e) => setFormData({ ...formData, confirmEmail: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, confirmEmail: e.target.value })
+                }
                 required
                 className="border-royal/20 focus:border-royal"
               />
@@ -130,7 +188,9 @@ export function RegistrationForm() {
             <Input
               id="occupation"
               value={formData.occupation}
-              onChange={(e) => setFormData({ ...formData, occupation: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, occupation: e.target.value })
+              }
               required
               className="border-royal/20 focus:border-royal"
             />
@@ -141,7 +201,9 @@ export function RegistrationForm() {
             <Label>Are you an undergraduate? *</Label>
             <RadioGroup
               value={formData.isUndergraduate}
-              onValueChange={(value) => setFormData({ ...formData, isUndergraduate: value })}
+              onValueChange={(value) =>
+                setFormData({ ...formData, isUndergraduate: value })
+              }
               className="flex gap-6"
             >
               <div className="flex items-center space-x-2">
@@ -163,8 +225,9 @@ export function RegistrationForm() {
                 <Input
                   id="school"
                   value={formData.school}
-                  onChange={(e) => setFormData({ ...formData, school: e.target.value })}
-                  required
+                  onChange={(e) =>
+                    setFormData({ ...formData, school: e.target.value })
+                  }
                   className="border-royal/20 focus:border-royal"
                 />
               </div>
@@ -173,8 +236,9 @@ export function RegistrationForm() {
                 <Input
                   id="department"
                   value={formData.department}
-                  onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                  required
+                  onChange={(e) =>
+                    setFormData({ ...formData, department: e.target.value })
+                  }
                   className="border-royal/20 focus:border-royal"
                 />
               </div>
@@ -182,18 +246,19 @@ export function RegistrationForm() {
                 <Label htmlFor="level">Level *</Label>
                 <Select
                   value={formData.level}
-                  onValueChange={(value) => setFormData({ ...formData, level: value })}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, level: value })
+                  }
                 >
                   <SelectTrigger className="border-royal/20 focus:border-royal">
                     <SelectValue placeholder="Select level" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="100">100 Level</SelectItem>
-                    <SelectItem value="200">200 Level</SelectItem>
+                    <SelectItem value="100/ND1">100 Level/ND1</SelectItem>
+                    <SelectItem value="200/ND2">200 Level/ND2</SelectItem>
                     <SelectItem value="300">300 Level</SelectItem>
-                    <SelectItem value="400">400 Level</SelectItem>
-                    <SelectItem value="500">500 Level</SelectItem>
-                    <SelectItem value="600">600 Level</SelectItem>
+                    <SelectItem value="400/HND1">400 Level/HND1</SelectItem>
+                    <SelectItem value="500/HND2">500 Level/HND2</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -203,7 +268,10 @@ export function RegistrationForm() {
           {/* How did you hear about us */}
           <div className="space-y-2">
             <Label>How did you hear about this event? *</Label>
-            <Select value={formData.hearAbout} onValueChange={handleHearAboutChange}>
+            <Select
+              value={formData.hearAbout}
+              onValueChange={handleHearAboutChange}
+            >
               <SelectTrigger className="border-royal/20 focus:border-royal">
                 <SelectValue placeholder="Select an option" />
               </SelectTrigger>
@@ -226,18 +294,25 @@ export function RegistrationForm() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 bg-gold-light/10 rounded-lg">
               <div className="space-y-2">
                 <Label htmlFor="schoolFellowshipName">
-                  {formData.hearAbout === "My school" ? "School Name" : "Fellowship Name"} *
+                  {formData.hearAbout === "My school"
+                    ? "School Name"
+                    : "Fellowship Name"}{" "}
+                  *
                 </Label>
                 <Input
                   id="schoolFellowshipName"
                   value={formData.schoolFellowshipName}
-                  onChange={(e) => setFormData({ ...formData, schoolFellowshipName: e.target.value })}
-                  required
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      schoolFellowshipName: e.target.value,
+                    })
+                  }
                   className="border-royal/20 focus:border-royal"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="schoolDepartment">Department *</Label>
+                {/* <Label htmlFor="schoolDepartment">Department *</Label>
                 <Input
                   id="schoolDepartment"
                   value={formData.schoolDepartment}
@@ -254,14 +329,16 @@ export function RegistrationForm() {
                   onChange={(e) => setFormData({ ...formData, schoolLevel: e.target.value })}
                   required
                   className="border-royal/20 focus:border-royal"
-                />
+                /> */}
               </div>
             </div>
           )}
 
           {/* Vocational Skills Interest */}
           <div className="space-y-4">
-            <Label>Will you be interested in the vocational skills training? *</Label>
+            <Label>
+              Will you be interested in the vocational skills training? *
+            </Label>
             <RadioGroup
               value={formData.interestedInSkills}
               onValueChange={handleSkillsInterestChange}
@@ -284,7 +361,9 @@ export function RegistrationForm() {
               <Label>Select your preferred skill *</Label>
               <Select
                 value={formData.skillType}
-                onValueChange={(value) => setFormData({ ...formData, skillType: value })}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, skillType: value })
+                }
               >
                 <SelectTrigger className="border-royal/20 focus:border-royal">
                   <SelectValue placeholder="Choose a skill" />
@@ -292,7 +371,10 @@ export function RegistrationForm() {
                 <SelectContent>
                   <SelectItem value="adire">Adire making</SelectItem>
                   <SelectItem value="pastries">Pastries</SelectItem>
-                  <SelectItem value="toiletries">Toiletries production (liquid soap, Bleach, air freshener, toilet cleaner)</SelectItem>
+                  <SelectItem value="toiletries">
+                    Toiletries production (liquid soap, Bleach, air freshener,
+                    toilet cleaner)
+                  </SelectItem>
                   <SelectItem value="makeup">Makeup and gele tying</SelectItem>
                   <SelectItem value="beads">Bead making</SelectItem>
                 </SelectContent>
@@ -302,11 +384,15 @@ export function RegistrationForm() {
 
           {/* Expectations */}
           <div className="space-y-2">
-            <Label htmlFor="expectations">What are you expecting from this event? *</Label>
+            <Label htmlFor="expectations">
+              What are you expecting from this event? *
+            </Label>
             <Textarea
               id="expectations"
               value={formData.expectations}
-              onChange={(e) => setFormData({ ...formData, expectations: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, expectations: e.target.value })
+              }
               required
               rows={4}
               className="border-royal/20 focus:border-royal"

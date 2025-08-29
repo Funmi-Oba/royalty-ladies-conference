@@ -1,22 +1,22 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Star, Heart } from "lucide-react";
+import { Eye, TargetIcon } from "lucide-react";
 
 const VisionMission = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-background to-muted">
+    <section className="py-10 px-4 bg-gradient-to-b from-background to-muted">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl md:text-4xl pb-2 font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
             Our Vision & Mission
           </h2>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-in">
+          <Card className="border-pink/20 shadow-elegant hover:shadow-purple transition-all duration-300 transform hover:scale-105 animate-fade-in">
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-pink to-pink-deep rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
-                <Star className="w-8 h-8 text-white animate-bounce-gentle" />
+                <Eye className="w-8 h-8 text-white animate-bounce-gentle" />
               </div>
               <CardTitle className="text-2xl text-pink">Our Vision</CardTitle>
             </CardHeader>
@@ -32,7 +32,7 @@ const VisionMission = () => {
           <Card className="border-purple/20 shadow-elegant hover:shadow-purple transition-all duration-300 transform hover:scale-105 animate-fade-in">
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-purple to-purple-deep rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-soft">
-                <Heart className="w-8 h-8 text-white animate-bounce-gentle" />
+                <TargetIcon className="w-8 h-8 text-white animate-bounce-gentle" />
               </div>
               <CardTitle className="text-2xl text-purple">Our Mission</CardTitle>
             </CardHeader>

@@ -49,7 +49,7 @@ const SponsorshipSection = () => {
     <section id="sponsorship" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
+          <h2 className="text-3xl md:text-4xl pb-2 font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
             Partner With Us
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

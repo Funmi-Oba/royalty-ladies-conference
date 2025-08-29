@@ -58,7 +58,7 @@ const Index = () => {
         setOrderData={setOrderData}
       />
       <PaymentSection orderData={orderData} />
-      <SponsorshipSection />
+      {/* <SponsorshipSection /> */}
       <RegistrationSection />
       <Footer />
     </div>

@@ -7,38 +7,51 @@ import guest3 from "@/assets/guest3.jpg";
 const SpeakersSection = () => {
   const guests = [
     {
-      name: "Dr. Grace Adebayo",
+      name: "Engr. (Mrs.) Noimot Salako",
+      title: "Deputy Governor, Ogun State",
+      image: "images/guest/DG.png",
+      bio: "A civil engineer and entrepreneur with over 30 years’ experience in engineering, real estate, and project management."
+    },
+   
+    {
+      name: "Rev'd Lare Akinronbi",
       title: "International Speaker & Author",
-      image: guest1,
-      bio: "A renowned international speaker with over 20 years of experience in women's ministry and leadership development. Author of 3 bestselling books on purposeful living."
+      image: "images/guest/akinronbi.jpg",
+      bio: "Co-pastor at Father's House. Head Proprietor of Quintessential Group of Schools. She is Passionate about making every woman find their path in life."
+    },
+     {
+      name: "Apostle Gbenga Oba",
+      title: "International Speaker & Author",
+      image: "images/guest/AGO3.jpg",
+      bio: "Senior Pastor of Destiny House, passionate about young minds. Author of several books. Holds a degree in Executive church management with McPherson University."
     },
     {
-      name: "Pastor Joy Okonkwo",
+      name: "Pst. Adebimpe Adejumo",
       title: "Life Coach & Entrepreneur",
-      image: guest2,
-      bio: "Founder of multiple successful businesses and a certified life coach. She has mentored thousands of women across Africa to discover their potential and walk in purpose."
+      image: "images/guest/adejumo.jpg",
+      bio: "A communicator, women and youth empowerment advocate. Founder & CEO of Sunshine Smiles Foundation. She leads programs in education, STEM, and community development with over a decade experience in communications and fintech."
     },
     {
-      name: "Dr. Faith Okoro",
-      title: "Worship Leader & Psalmist",
-      image: guest3,
-      bio: "An anointed worship leader and psalmist who has ministered in over 50 countries. Known for creating an atmosphere where heaven touches earth through worship."
+      name: "Pst. Ifeoluwa Odegbami",
+      title: "Realtor & Nutritionist",
+      image: "images/guest/odegbami.jpg",
+      bio: "A public health nutritionist, realtor, pastor and entrepreneur. An advocate for health and women’s empowerment. A philanthropist and culinary content creator."
     }
   ];
 
   return (
-    <section id="speakers" className="py-20 px-4">
+    <section id="speakers" className="py-10 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl md:text-4xl pb-2 font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
             Our Distinguished Speakers
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Meet the incredible women who will be sharing life-transforming messages at this year's conference
+            Meet the incredible speakers who will be sharing life-transforming messages at this year's conference
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-5 gap-4">
           {guests.map((guest, index) => (
             <Card key={index} className="border-pink/20 hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-in">
               <CardHeader className="text-center">
