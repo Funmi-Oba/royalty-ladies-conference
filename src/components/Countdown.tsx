@@ -64,7 +64,7 @@ const Countdown = ({ targetDate }: CountdownProps) => {
   }, [targetDate]);
 
   return (
-    <div className="flex gap-4 justify-center mt-16 text-center">
+    <div className="grid md:grid-cols-5 grid-cols-2 gap-4 justify-center mt-16 text-center">
       {Object.entries(display).map(([label, value]) => (
         <div
           key={label}
@@ -76,7 +76,7 @@ const Countdown = ({ targetDate }: CountdownProps) => {
           <span className="uppercase text-xs text-pink">{label}</span>
         </div>
       ))}
-      <div className="flex flex-col items-center justify-center bg-white backdrop-blur-md px-4 py-2 rounded-xl shadow-lg">
+      <div className="hidden md:flex flex-col items-center justify-center bg-white backdrop-blur-md px-4 py-2 rounded-xl shadow-lg">
         <span className="text-lg text-pink ">LEFT</span>
       </div>
     </div>
