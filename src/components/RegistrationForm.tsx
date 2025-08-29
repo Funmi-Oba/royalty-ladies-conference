@@ -281,9 +281,10 @@ export function RegistrationForm() {
                 <SelectItem value="Tiktok">TikTok</SelectItem>
                 <SelectItem value="Whatsapp">WhatsApp</SelectItem>
                 <SelectItem value="Website">Website</SelectItem>
-                <SelectItem value="My school">My school</SelectItem>
+                <SelectItem value="My School">My school</SelectItem>
+                <SelectItem value="My Church">My Church</SelectItem>
                 <SelectItem value="My Fellowship">My Fellowship</SelectItem>
-                <SelectItem value="A friend">A friend</SelectItem>
+                <SelectItem value="A Friend">A friend</SelectItem>
                 <SelectItem value="Others">Others</SelectItem>
               </SelectContent>
             </Select>
