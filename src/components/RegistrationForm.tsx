@@ -56,7 +56,7 @@ export function RegistrationForm() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/submitForm", {
+      const res = await fetch("https://royalty-ladies-conference.onrender.com/api/submitForm", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData), // send raw state, backend maps to Airtable

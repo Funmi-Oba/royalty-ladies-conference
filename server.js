@@ -8,7 +8,21 @@ const app = express();
 const PORT = 5000;
 
 // Middleware
-app.use(cors());
+
+const allowedOrigins = [
+  "https://royaltyladies.vercel.app",
+  "http://localhost:5173",
+   "http://localhost:8081" 
+];
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
