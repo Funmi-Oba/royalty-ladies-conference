@@ -130,7 +130,7 @@ export function RegistrationForm() {
     <div className="relative">
       {/* Overlay */}
       {loading && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md bg-black/30">
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30">
           <Spinner />
           <p className="ml-4 text-white text-lg font-medium">Submitting...</p>
         </div>
