@@ -228,6 +228,7 @@ export function RegistrationForm() {
                   setFormData({ ...formData, isUndergraduate: value })
                 }
                 className="flex gap-6"
+                required
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="YES" id="undergrad-yes" />
@@ -294,6 +295,7 @@ export function RegistrationForm() {
               <Select
                 value={formData.hearAbout}
                 onValueChange={handleHearAboutChange}
+                required
               >
                 <SelectTrigger className="border-royal/20 focus:border-royal">
                   <SelectValue placeholder="Select an option" />
@@ -367,6 +369,7 @@ export function RegistrationForm() {
                 value={formData.interestedInSkills}
                 onValueChange={handleSkillsInterestChange}
                 className="flex gap-6"
+                required
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="YES" id="skills-yes" />
@@ -393,16 +396,15 @@ export function RegistrationForm() {
                     <SelectValue placeholder="Choose a skill" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="adire">Adire making</SelectItem>
-                    <SelectItem value="pastries">Pastries</SelectItem>
-                    <SelectItem value="toiletries">
+                    <SelectItem value="Adire">Adire making</SelectItem>
+                    <SelectItem value="Pastries">Pastries</SelectItem>
+                    <SelectItem value="Toiletries">
                       Toiletries production (liquid soap, Bleach, air freshener,
                       toilet cleaner)
                     </SelectItem>
-                    <SelectItem value="makeup">
+                    <SelectItem value="Makeup and gele tying">
                       Makeup and gele tying
                     </SelectItem>
-                    <SelectItem value="beads">Bead making</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
