@@ -61,7 +61,73 @@ export function RegistrationForm() {
       });
       return;
     }
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
 
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid Email",
+        description:
+          "Please enter a valid email address (e.g. name@example.com).",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Required: Undergraduate choice
+    if (!formData.isUndergraduate) {
+      toast({
+        title: "Missing Field",
+        description: "Please select whether you are an undergraduate.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // If YES → check school fields
+    if (
+      formData.isUndergraduate === "YES" &&
+      (!formData.school || !formData.department || !formData.level)
+    ) {
+      toast({
+        title: "Incomplete Fields",
+        description: "Please fill out your school, department, and level.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Required: How did you hear about us
+    if (!formData.hearAbout) {
+      toast({
+        title: "Missing Field",
+        description: "Please select how you heard about this event.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Required: Vocational skills interest
+    if (!formData.interestedInSkills) {
+      toast({
+        title: "Missing Field",
+        description:
+          "Please indicate if you’re interested in vocational skills training.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // If YES → check skill type
+    if (formData.interestedInSkills === "YES" && !formData.skillType) {
+      toast({
+        title: "Missing Field",
+        description: "Please select your preferred vocational skill.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // All validations passed, proceed with submission
     setLoading(true); // show overlay
 
     try {
@@ -167,6 +233,9 @@ export function RegistrationForm() {
                 <Input
                   id="phone"
                   type="tel"
+                  placeholder="080...."
+                  pattern="[0-9]{11}"
+                  title="Enter a valid phone number (11 digits)"
                   value={formData.phone}
                   onChange={(e) =>
                     setFormData({ ...formData, phone: e.target.value })
@@ -183,6 +252,9 @@ export function RegistrationForm() {
                 <Input
                   id="email"
                   type="email"
+                  placeholder="name@example.com"
+                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$"
+                  title="Enter a valid email address (e.g. name@example.com)"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -196,6 +268,7 @@ export function RegistrationForm() {
                 <Input
                   id="confirmEmail"
                   type="email"
+                   placeholder="name@example.com"
                   value={formData.confirmEmail}
                   onChange={(e) =>
                     setFormData({ ...formData, confirmEmail: e.target.value })
@@ -231,11 +304,11 @@ export function RegistrationForm() {
                 required
               >
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="YES" id="undergrad-yes" />
+                  <RadioGroupItem value="YES" id="undergrad-yes" required />
                   <Label htmlFor="undergrad-yes">YES</Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="NO" id="undergrad-no" />
+                  <RadioGroupItem value="NO" id="undergrad-no" required />
                   <Label htmlFor="undergrad-no">NO</Label>
                 </div>
               </RadioGroup>
@@ -369,7 +442,6 @@ export function RegistrationForm() {
                 value={formData.interestedInSkills}
                 onValueChange={handleSkillsInterestChange}
                 className="flex gap-6"
-                required
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="YES" id="skills-yes" />

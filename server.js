@@ -37,6 +37,8 @@ const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
 app.post("/api/submitForm", async (req, res) => {
   console.log("Form data received:", req.body);
 
+
+  
   try {
     const createdRecord = await base(process.env.AIRTABLE_TABLE_NAME).create([
       {
