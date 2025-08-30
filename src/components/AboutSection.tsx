@@ -59,7 +59,7 @@ const AboutSection = () => {
         </div>
         <div className="flex flex-col px-10 md:flex-row items-center ">
           {/* Text Section */}
-          <div className="md:w-2/3">
+          <div className="md:w-2/3 mt-6">
             <p className="text-lg text-center md:text-left leading-relaxed text-muted-foreground">
               <p>
                 <b>

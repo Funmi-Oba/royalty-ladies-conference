@@ -11,18 +11,20 @@ const PORT = 5000;
 
 const allowedOrigins = [
   "https://royaltyladies.vercel.app",
-  "http://localhost:5173",
-   "http://localhost:8081" 
+  "http://localhost:8080",
+   "http://localhost:8081"
 ];
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log("❌ Blocked by CORS:", origin);
       callback(new Error("Not allowed by CORS"));
     }
   }
 }));
+app.options("*", cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

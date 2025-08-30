@@ -7,35 +7,41 @@ import guest3 from "@/assets/guest3.jpg";
 const SpeakersSection = () => {
   const guests = [
     {
-      name: "Engr. (Mrs.) Noimot Salako",
+      name: "Her Excellency, Engr. (Mrs.) Noimot Salako",
       title: "Deputy Governor, Ogun State",
       image: "images/guest/DG.png",
-      bio: "A civil engineer and entrepreneur with over 30 years’ experience in engineering, real estate, and project management."
+      bio: "A civil engineer and entrepreneur with over 30 years’ experience in engineering, real estate, and project management. Serving as the Deputy Governor of Ogun State since 2019."
     },
    
     {
-      name: "Rev'd Lare Akinronbi",
-      title: "International Speaker & Author",
+      name: "Lare Akinronbi",
+      title: "Educationist & Public Speaker",
       image: "images/guest/akinronbi.jpg",
       bio: "Co-pastor at Father's House. Head Proprietor of Quintessential Group of Schools. She is Passionate about making every woman find their path in life."
     },
      {
-      name: "Apostle Gbenga Oba",
-      title: "International Speaker & Author",
+      name: "Gbenga Oba",
+      title: "Realtor & Author",
       image: "images/guest/AGO3.jpg",
       bio: "Senior Pastor of Destiny House, passionate about young minds. Author of several books. Holds a degree in Executive church management with McPherson University."
     },
     {
-      name: "Pst. Adebimpe Adejumo",
-      title: "Life Coach & Entrepreneur",
+      name: "Adebimpe Adejumo",
+      title: "Life Coach & Philantropist",
       image: "images/guest/adejumo.jpg",
       bio: "A communicator, women and youth empowerment advocate. Founder & CEO of Sunshine Smiles Foundation. She leads programs in education, STEM, and community development with over a decade experience in communications and fintech."
     },
     {
-      name: "Pst. Ifeoluwa Odegbami",
+      name: "Ifeoluwa Odegbami",
       title: "Realtor & Nutritionist",
       image: "images/guest/odegbami.jpg",
       bio: "A public health nutritionist, realtor, pastor and entrepreneur. An advocate for health and women’s empowerment. A philanthropist and culinary content creator."
+    },
+    {
+      name: "Bolanle Olagboye",
+      title: "International Speaker & Entrepreneur",
+      image: "images/guest/olagboye.png",
+      bio: "Co-pastor at Reconciliation Bible Church world wide. International sought after speaker with over two decades of experience. She is passionate about young mothers, helping them to find their purpose and excel in motherhood."
     }
   ];
 
@@ -44,14 +50,14 @@ const SpeakersSection = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl pb-2 font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
-            Our Distinguished Speakers
+             Our World Class Speakers
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Meet the incredible speakers who will be sharing life-transforming messages at this year's conference
           </p>
         </div>
         
-        <div className="grid md:grid-cols-5 gap-4">
+        <div className="grid md:grid-cols-3 gap-4">
           {guests.map((guest, index) => (
             <Card key={index} className="border-pink/20 hover:shadow-glow transition-all duration-300 transform hover:scale-105 animate-fade-in">
               <CardHeader className="text-center">

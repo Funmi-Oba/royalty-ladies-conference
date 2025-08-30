@@ -12,16 +12,15 @@ const ConvenerSection = () => {
   return (
     <section id="convener" className="py-10 px-4 bg-muted">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-6">
-          <h2 className="text-3xl pb-2 md:text-4xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent mb-4 animate-shimmer bg-300%">
-            Meet the Convener
-          </h2>
-        </div>
-
         <Card className="border-pink/20 shadow-elegant hover:shadow-glow transition-all duration-300 animate-fade-in p-6">
           <CardHeader>
+            <div className="text-center">
+              <h2 className="text-3xl pb-2 md:text-4xl font-bold bg-gradient-to-r from-pink to-purple bg-clip-text text-transparent animate-shimmer bg-300%">
+                Meet the Convener
+              </h2>
+            </div>
             <CardTitle className="text-center text-3xl text-pink">
-              Pastor Funmi Oba
+              Funmilayo Oba
             </CardTitle>
             <CardDescription className="text-center text-lg text-purple font-semibold">
               The Visionary Leader
@@ -32,10 +31,11 @@ const ConvenerSection = () => {
             {/* Floated Image */}
             <div className="relative float-left mr-6  w-64">
               <img
-                src="/images/guest/pfun2.png"
+                src="/images/guest/pfun2.jpg
+                "
                 alt="Conference Convener"
                 loading="lazy"
-                className=""
+                className="rounded-tl-3xl rounded-br-3xl"
               />
               {/* <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-pink to-purple rounded-full flex items-center justify-center animate-pulse-soft">
                 <Crown className="w-10 h-10 text-white animate-bounce-gentle" />
@@ -43,7 +43,7 @@ const ConvenerSection = () => {
             </div>
 
             <p className="mb-4 text-justify text-muted-foreground">
-              Pastor Funmi Oba is a dynamic woman of grace and vision. She
+              Funmilayo Oba is a dynamic woman of grace and vision. She
               serves as the Co-Lead Pastor of Destiny House, breeding lives and
               nurturing destinies. As the convener of the Royalty Ladies, she
               empowers young women to walk boldly in purpose, excel in marriage,
