@@ -37,11 +37,11 @@ const MerchandiseSection = ({ scrollToPayment, orderData, setOrderData }: Mercha
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-3 gap-4">
-                <img src="/images/brands/dpink-shirt.png" alt="Deep Pink T-shirt" className="rounded-lg shadow-md" />
-                <img src="/images/brands/white-shirt.png" alt="White T-shirt" className="rounded-lg shadow-md" />
-                 <img src="/images/brands/black-shirt.png" alt="Black T-shirt" className="rounded-lg shadow-md" />
-                 <img src="/images/brands/lpink-shirt.png" alt="Light Pink T-shirt" className="rounded-lg shadow-md" />
-                 <img src="/images/brands/purple-shirt.png" alt="Purple T-shirt" className="rounded-lg shadow-md" />
+                <img src="/images/brands/dpink-shirt.png" loading='lazy' alt="Deep Pink T-shirt" className="rounded-lg shadow-md" />
+                <img src="/images/brands/white-shirt.png" loading='lazy' alt="White T-shirt" className="rounded-lg shadow-md" />
+                 <img src="/images/brands/black-shirt.png" loading='lazy' alt="Black T-shirt" className="rounded-lg shadow-md" />
+                 <img src="/images/brands/lpink-shirt.png" loading='lazy' alt="Light Pink T-shirt" className="rounded-lg shadow-md" />
+                 <img src="/images/brands/purple-shirt.png" loading='lazy' alt="Purple T-shirt" className="rounded-lg shadow-md" />
               </div>
               
               <div className="space-y-4">
@@ -113,9 +113,9 @@ const MerchandiseSection = ({ scrollToPayment, orderData, setOrderData }: Mercha
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-3 gap-4">
-                <img src="/images/brands/black-cap.png" alt="Black cap" className="rounded-lg shadow-md" />
-                <img src="/images/brands/white-cap.png" alt="White Cap" className="rounded-lg shadow-md" />
-                <img src="/images/brands/pink-cap.png" alt="Pink Cap" className="rounded-lg shadow-md" />
+                <img src="/images/brands/black-cap.png" alt="Black cap" className="rounded-lg shadow-md" loading='lazy' />
+                <img src="/images/brands/white-cap.png" alt="White Cap" className="rounded-lg shadow-md" loading='lazy'/>
+                <img src="/images/brands/pink-cap.png" alt="Pink Cap" className="rounded-lg shadow-md" loading='lazy'/>
               </div>
               
               <div className="space-y-4">

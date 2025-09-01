@@ -18,11 +18,14 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img
-                src="/images/logo1.png"
-                alt="Royalty Ladies logo"
-                className="h-12 w-auto drop-shadow"
-              />
+              <a href="#home" className="flex items-center">
+                <img
+                  src="/images/logo1.png"
+                  alt="Royalty Ladies logo"
+                  className="h-12 w-auto drop-shadow"
+                  loading="lazy"
+                />
+              </a>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
               Empowering women to discover their royal identity and walk in
@@ -103,40 +106,38 @@ const Footer = () => {
                   Abeokuta, Ogun State, Nigeria.
                 </span>
               </div>
-              
-                
-                <div className="flex gap-6 text-lg">
-                  <a
-                    href="https://www.facebook.com/share/19SvNNyJJ1/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaFacebook />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/royalty.ladies?igsh=MTdkMGJkNHBvMnI4NA==&utm_source=ig_contact_invite"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaInstagram />
-                  </a>
-                  <a
-                    href="https://youtube.com/@royaltyladies?si=xfT1JYPjPWKpHPRz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaYoutube />
-                  </a>
-                
-                  <a
-                    href="https://www.tiktok.com/@royalty_ladies?_t=ZS-8ylqfZVxzH8&_r=1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <BsTiktok />
-                  </a>
-                </div>
-             
+
+              <div className="flex gap-6 text-lg">
+                <a
+                  href="https://www.facebook.com/share/19SvNNyJJ1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook />
+                </a>
+                <a
+                  href="https://www.instagram.com/royalty.ladies?igsh=MTdkMGJkNHBvMnI4NA==&utm_source=ig_contact_invite"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram />
+                </a>
+                <a
+                  href="https://youtube.com/@royaltyladies?si=xfT1JYPjPWKpHPRz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaYoutube />
+                </a>
+
+                <a
+                  href="https://www.tiktok.com/@royalty_ladies?_t=ZS-8ylqfZVxzH8&_r=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <BsTiktok />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -146,7 +147,11 @@ const Footer = () => {
             © 2025 Royalty Ladies. All rights reserved.
             <p className="ml-2">
               Made with ❤️ by
-              <a href="https://funmilayooba.vercel.app/" target="_blank"  rel="noopener noreferrer">
+              <a
+                href="https://funmilayooba.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {" "}
                 Funmi Oba
               </a>

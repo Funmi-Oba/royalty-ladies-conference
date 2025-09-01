@@ -66,6 +66,7 @@ const SpeakersSection = () => {
                     src={guest.image} 
                     alt={guest.name}
                     className="w-full h-full object-cover"
+                    loading='lazy'
                   />
                 </div>
                 <CardTitle className="text-xl text-pink">{guest.name}</CardTitle>
