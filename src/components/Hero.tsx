@@ -17,7 +17,7 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
     >
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/images/royalty-ladies.png')` }}
+        style={{ backgroundImage: `url('/images/royalty-ladies3.jpg')` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-pink/30 via-purple/50 to-pink-deep/30"></div>
         {/* 3D Flower decorations */}
@@ -25,17 +25,16 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
           <div className="w-full h-full bg-gradient-to-br from-rose to-pink-light rounded-full opacity-30 animate-pulse-soft"></div>
         </div>
 
-        <div className="absolute bottom-32 right-16 w-32 h-32 animate-bounce-gentle">
+        {/* <div className="absolute bottom-32 right-16 w-32 h-32 animate-bounce-gentle">
           <div className="w-full h-full bg-gradient-to-br from-purple-light to-purple rounded-full opacity-25 animate-flower-bloom"></div>
-        </div>
+        </div> */}
       </div>
 
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4 animate-fade-in">
         <div className="flex items-center justify-center mt-8 mb-4">
           <Crown className="w-16 h-16 text-white mr-4 animate-bounce-gentle" />
           <h1
-            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-rose-deep
-           to-white 
+            className="text-4xl md:text-5xl font-bold bg-white
           bg-clip-text text-transparent animate-shimmer bg-300% pb-2"
           >
             Royalty Ladies Conference 1.0
@@ -100,7 +99,7 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
         </div>
         <Countdown targetDate="2025-10-29T00:00:00" />
       </div>
-      <div className="bg-pink px-4 py-4 rounded-lg fixed right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-30 animate-float">
+      <div className="bg-purple font-cinzel px-4 py-4 rounded-lg fixed right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-30 animate-float">
         <div className="flex flex-col items-center gap-4 sm:gap-6 text-xl sm:text-2xl text-white">
           <a
             href="https://www.facebook.com/share/19SvNNyJJ1/"

@@ -18,6 +18,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        cinzel: ['"Cinzel Decorative"', 'serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -136,6 +139,7 @@ export default {
         "flower-bloom": "flower-bloom 1s ease-out",
         "petal-fall": "petal-fall 10s linear infinite",
       },
+      
     },
   },
   plugins: [require("tailwindcss-animate")],
