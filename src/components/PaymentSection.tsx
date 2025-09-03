@@ -26,18 +26,18 @@ const PaymentSection = ({ orderData }: PaymentSectionProps) => {
 
   const handleWhatsAppConfirmation = () => {
     const orderSummary = `
-Order Summary:
-- T-shirt: ${orderData.shirtColor} (Size: ${orderData.shirtSize}) x${orderData.shirtQuantity} = ₦${shirtTotal.toLocaleString()}${orderData.wantCap ? `
-- Cap: ${orderData.capColor} x${orderData.capQuantity} = ₦${capTotal.toLocaleString()}` : ''}
+*Order Summary:*
+*T-shirt:* ${orderData.shirtColor} (Size: ${orderData.shirtSize}) x${orderData.shirtQuantity} = ₦${shirtTotal.toLocaleString()}${orderData.wantCap ? `
+*Cap:* ${orderData.capColor} x${orderData.capQuantity} = ₦${capTotal.toLocaleString()}` : ''}
 
-Total Amount: ₦${grandTotal.toLocaleString()}
+*Total Amount:* ₦${grandTotal.toLocaleString()}
 
 Hello, my name is [Your Name].
 
 I have made payment for my Royalty Ladies Conference Merch. Please find my payment receipt attached for confirmation.`;
     
     const message = encodeURIComponent(orderSummary);
-    window.open(`https://wa.me/2349076022592?text=${message}`, '_blank');
+    window.open(`https://wa.me/2347063818393?text=${message}`, '_blank');
   };
 
   return (

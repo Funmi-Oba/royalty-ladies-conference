@@ -29,6 +29,7 @@ function Spinner() {
 export function RegistrationForm() {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false); // 🔑 track submission
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -141,11 +142,13 @@ export function RegistrationForm() {
       );
 
       if (res.ok) {
-        toast({
-          title: "Registration Successful!",
-          description:
-            "Thank you for registering for Royalty Ladies Conference 2025. We can't wait to see you there!",
-        });
+        // toast({
+        //   title: "Registration Successful!",
+        //   description:
+        //     "Thank you for registering for Royalty Ladies Conference 2025. We can't wait to see you there!",
+        // });
+        setShowSuccessDialog(true);
+
         setFormData({
           fullName: "",
           phone: "",
@@ -193,7 +196,7 @@ export function RegistrationForm() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" id="registernow">
       {/* Overlay */}
       {loading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30">
@@ -268,7 +271,7 @@ export function RegistrationForm() {
                 <Input
                   id="confirmEmail"
                   type="email"
-                   placeholder="name@example.com"
+                  placeholder="name@example.com"
                   value={formData.confirmEmail}
                   onChange={(e) =>
                     setFormData({ ...formData, confirmEmail: e.target.value })
@@ -509,6 +512,25 @@ export function RegistrationForm() {
           </form>
         </CardContent>
       </Card>
+
+        {/* ✅ Success Dialog */}
+      {showSuccessDialog && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-lg p-6 max-w-sm w-full text-center shadow-lg">
+            <h2 className="text-xl font-bold mb-4">Registration Successful!</h2>
+            <p className="mb-4">
+              Thank you for registering for Royalty Ladies Conference 2025. We
+              can't wait to see you there!
+            </p>
+            <button
+              onClick={() => setShowSuccessDialog(false)}
+              className="bg-pink text-white px-4 py-2 rounded-lg font-semibold hover:bg-pink-dark transition"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -13,7 +13,7 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
   return (
     <section
       id="home"
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen px-4 py-6 pt-20 flex flex-col items-center justify-center overflow-hidden"
     >
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -34,8 +34,8 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
         <div className="flex items-center justify-center mt-8 mb-4">
           <Crown className="w-16 h-16 text-white mr-4 animate-bounce-gentle" />
           <h1
-            className="text-4xl md:text-5xl font-bold bg-white
-          bg-clip-text text-transparent animate-shimmer bg-300% pb-2"
+            className="text-2xl sm:text-3xl md:text-4xl font-cinzel font-bold bg-white
+          bg-clip-text text-transparent bg-300% pb-2 leading-tight"
           >
             Royalty Ladies Conference 1.0
           </h1>
@@ -99,7 +99,7 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
         </div>
         <Countdown targetDate="2025-10-29T00:00:00" />
       </div>
-      <div className="bg-purple font-cinzel px-4 py-4 rounded-lg fixed right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-30 animate-float">
+      <div className="bg-purple px-4 py-4 rounded-lg fixed right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-30 animate-float">
         <div className="flex flex-col items-center gap-4 sm:gap-6 text-xl sm:text-2xl text-white">
           <a
             href="https://www.facebook.com/share/19SvNNyJJ1/"

@@ -3,6 +3,7 @@ import type { Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: [
+    //  "./index.html",
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
@@ -19,7 +20,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        cinzel: ['"Cinzel Decorative"', 'serif'],
+        cinzel: ['"Cinzel Decorative"', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",

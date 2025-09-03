@@ -35,7 +35,7 @@ const ConvenerSection = () => {
                 "
                 alt="Conference Convener"
                 loading="lazy"
-                className="rounded-tl-3xl rounded-br-3xl"
+                className="rounded-tl-3xl rounded-br-3xl max-w-full h-auto"
               />
               {/* <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-pink to-purple rounded-full flex items-center justify-center animate-pulse-soft">
                 <Crown className="w-10 h-10 text-white animate-bounce-gentle" />
