@@ -17,7 +17,7 @@ const SpeakersSection = () => {
       name: "Lare Akinronbi",
       title: "Educationist & Public Speaker",
       image: "images/guest/akinronbi.jpg",
-      bio: "Co-pastor at Father's House. Head Proprietor of Quintessential Group of Schools. She is Passionate about making every woman find their path in life."
+      bio: "Co-pastor at Father's House. Founder of Beacon School and College. She is Passionate about making every woman find their path in life."
     },
      {
       name: "Gbenga Oba",
