@@ -49,7 +49,7 @@ const RegistrationSection = () => {
             </CardContent>
           </Card>
         </div>
-        <div className="mb-12">
+        <div id="map" className="mb-12">
           <Card className="text-center border-pink/20 hover:shadow-glow transition-all duration-300 animate-fade-in">
             <CardHeader>
               <MapPinned className="w-12 h-12 text-pink mx-auto mb-2" />

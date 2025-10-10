@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Calendar, Crown, Sparkles } from "lucide-react";
+import { Calendar, Crown, Sparkles, MapPinned, Shirt, SquarePen } from "lucide-react";
 import { FaFacebook, FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
 import { BsTiktok } from "react-icons/bs";
 import Countdown from "@/components/Countdown";
@@ -84,6 +84,7 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
             shadow-glow shadow-lg shadow-white"
             aria-label="Register Now"
           >
+              <SquarePen className="w-8 h-8 text-white" />
             Register Now
           </Button>
           <Button
@@ -94,8 +95,24 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
             shadow-lg shadow-white"
             aria-label="Get your Event T-Shirt"
           >
-            Get your Event T-Shirt
+              <Shirt className="w-8 h-8 text-white" />
+            Get Event T-Shirt
           </Button>
+          
+            
+             <Button
+            variant="elegant"
+            size="xl"
+            onClick={() => (window.location.href = "#map")}
+            className="text-xl px-8 py-4 hover-scale bg-purple text-white animate-enter 
+            shadow-glow shadow-lg shadow-white"
+            aria-label="Get your Event T-Shirt"
+          >
+            <MapPinned className="w-8 h-8 text-white" />
+            Get Direction to Venue
+          </Button>
+          
+         
         </div>
         <Countdown targetDate="2025-10-29T00:00:00" />
       </div>
