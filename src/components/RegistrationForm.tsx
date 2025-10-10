@@ -480,8 +480,8 @@ export function RegistrationForm() {
                     <SelectItem value="Makeup and gele tying">
                       Makeup and gele tying
                     </SelectItem>
-                    <SelectItem value="Tailoring (Not for beginners)">
-                      Tailoring
+                    <SelectItem value="Tailoring">
+                      Tailoring (Not for beginners)
                     </SelectItem>
                   </SelectContent>
                 </Select>
