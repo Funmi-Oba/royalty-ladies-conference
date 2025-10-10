@@ -76,13 +76,13 @@ const Hero = ({ scrollToRegistration }: HeroProps) => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center">
-          <Button
+        <Button
             variant="elegant"
             size="xl"
-            onClick={scrollToRegistration}
+            onClick={() => (window.location.href = "#registernow")}
             className="text-xl px-8 py-4 hover-scale bg-purple text-white animate-enter 
             shadow-glow shadow-lg shadow-white"
-            aria-label="Register Now"
+            aria-label="Get your Event T-Shirt"
           >
               <SquarePen className="w-8 h-8 text-white" />
             Register Now
