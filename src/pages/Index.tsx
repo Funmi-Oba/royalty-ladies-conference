@@ -14,6 +14,7 @@ import RegistrationSection from "@/components/RegistrationSection";
 import Footer from "@/components/Footer";
 
 export interface OrderData {
+  wantShirt: boolean;
   shirtColor: string;
   shirtSize: string;
   shirtQuantity: number;
@@ -24,12 +25,13 @@ export interface OrderData {
 
 const Index = () => {
   const [orderData, setOrderData] = useState<OrderData>({
-    shirtColor: "Deep Pink",
-    shirtSize: "M",
-    shirtQuantity: 1,
+    wantShirt: false,
+    shirtColor: "",
+    shirtSize: "",
+    shirtQuantity: null,
     wantCap: false,
-    capColor: "Pink",
-    capQuantity: 1
+    capColor: "",
+    capQuantity: null
   });
 
   const scrollToRegistration = () => {
