@@ -458,7 +458,7 @@ export function RegistrationForm() {
             </div>
 
             {/* Skills Selection */}
-            {showSkillsField && (
+            {/* {showSkillsField && (
               <div className="space-y-2">
                 <Label>Select your preferred skill *</Label>
                 <Select
@@ -475,6 +475,49 @@ export function RegistrationForm() {
                     <SelectItem value="Pastries">Pastries</SelectItem>
                     <SelectItem value="Toiletries">
                       Toiletries production (liquid soap, Bleach, air freshener,
+                      toilet cleaner)
+                    </SelectItem>
+                    <SelectItem value="Makeup and gele tying">
+                      Makeup and gele tying
+                    </SelectItem>
+                    <SelectItem value="Tailoring">
+                      Tailoring (Not for beginners)
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            )} */}
+
+            {/* Skills Selection */}
+            {showSkillsField && (
+              <div className="relative space-y-2">
+                {/* Transparent Overlay */}
+                <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center text-white text-center rounded-lg z-10">
+                  <h3 className="text-lg font-bold mb-1">
+                    Registration for Skill Acquisition has Closed
+                  </h3>
+                  <p className="text-sm">
+                    You can still register for the main event
+                  </p>
+                </div>
+
+                {/* Disabled Form Elements Behind Overlay */}
+                <Label>Select your preferred skill *</Label>
+                <Select
+                  value={formData.skillType}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, skillType: value })
+                  }
+                  disabled
+                >
+                  <SelectTrigger className="border-royal/20 focus:border-royal">
+                    <SelectValue placeholder="Choose a skill" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Adire">Adire making</SelectItem>
+                    <SelectItem value="Pastries">Pastries</SelectItem>
+                    <SelectItem value="Toiletries">
+                      Toiletries production (liquid soap, bleach, air freshener,
                       toilet cleaner)
                     </SelectItem>
                     <SelectItem value="Makeup and gele tying">
@@ -516,7 +559,7 @@ export function RegistrationForm() {
         </CardContent>
       </Card>
 
-        {/* ✅ Success Dialog */}
+      {/* ✅ Success Dialog */}
       {showSuccessDialog && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
           <div className="bg-white rounded-lg p-6 max-w-sm w-full text-center shadow-lg">
