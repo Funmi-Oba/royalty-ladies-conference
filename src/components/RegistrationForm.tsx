@@ -119,15 +119,18 @@ export function RegistrationForm() {
     }
 
     // If YES → check skill type
-    if (formData.interestedInSkills === "YES" && !formData.skillType) {
-      toast({
-        title: "Missing Field",
-        description: "Please select your preferred vocational skill.",
-        variant: "destructive",
-      });
-      return;
-    }
+    // if (formData.interestedInSkills === "YES" && !formData.skillType) {
+    //   toast({
+    //     title: "Missing Field",
+    //     description: "Please select your preferred vocational skill.",
+    //     variant: "destructive",
+    //   });
+    //   return;
+    // }
+if (formData.interestedInSkills === "YES") {
 
+  formData.skillType = "Closed"; // optional, helps backend know it’s closed
+}
     // All validations passed, proceed with submission
     setLoading(true); // show overlay
 
