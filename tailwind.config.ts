@@ -21,6 +21,9 @@ export default {
     extend: {
       fontFamily: {
         cinzel: ['"Cinzel Decorative"', 'cursive'],
+        display: ['"Playfair Display"', 'serif'],
+        script: ['"Cormorant Garamond"', 'serif'],
+        sans: ['"Outfit"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,6 +54,18 @@ export default {
           DEFAULT: "hsl(var(--rose))",
           deep: "hsl(var(--rose-deep))",
         },
+        "baby-pink": "hsl(var(--baby-pink))",
+        crimson: {
+          DEFAULT: "hsl(var(--crimson))",
+          light: "hsl(var(--crimson-light))",
+        },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          deep: "hsl(var(--gold-deep))",
+        },
+        ivory: "hsl(var(--ivory))",
+        charcoal: "hsl(var(--charcoal))",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -129,6 +144,18 @@ export default {
           "0%": { transform: "translateY(-100vh) rotate(0deg)" },
           "100%": { transform: "translateY(100vh) rotate(360deg)" },
         },
+        "gold-flicker": {
+          "0%, 100%": { opacity: "0.3" },
+          "50%": { opacity: "0.8" },
+        },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(24px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "scale-reveal": {
+          "0%": { opacity: "0", transform: "scale(0.96)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -139,6 +166,9 @@ export default {
         shimmer: "shimmer 3s linear infinite",
         "flower-bloom": "flower-bloom 1s ease-out",
         "petal-fall": "petal-fall 10s linear infinite",
+        "gold-flicker": "gold-flicker 3s ease-in-out infinite",
+        "fade-up": "fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "scale-reveal": "scale-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards",
       },
       
     },

@@ -1,14 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-/* Royal Ladies Conference Design System - Feminine pink and purple theme */
+/* ── RLC 2.0 Design System ──────────────────────────────────────
+   Palette: Baby Pink, Deep Crimson, Champagne Gold, Warm Ivory, Charcoal
+   Fonts: Playfair Display (headlines), Cormorant Garamond (script accent),
+          Outfit (body/UI), Cinzel Decorative (legacy — retained for other sections)
+─────────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  
 }
 
 @layer base { 
@@ -40,6 +46,16 @@ html {
     --rose: 350 100% 88%;
     --rose-deep: 350 100% 75%;
 
+    /* ── RLC 2.0 Brand Palette ── */
+    --baby-pink: 340 100% 85%;       /* #FF9ECF */
+    --crimson: 348 100% 30%;         /* #990012 */
+    --crimson-light: 348 100% 40%;
+    --gold: 36 55% 58%;              /* #C9A45C */
+    --gold-light: 36 55% 72%;
+    --gold-deep: 36 55% 44%;
+    --ivory: 38 33% 96%;             /* #FAF6F0 */
+    --charcoal: 324 17% 13%;         /* #211C20 */
+
     --muted: 280 100% 98%;
     --muted-foreground: 270 10% 46%;
 
@@ -60,6 +76,18 @@ html {
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
     --gradient-hero: linear-gradient(135deg, hsl(var(--pink)) 0%, hsl(var(--purple)) 50%, hsl(var(--purple-deep)) 100%);
     --gradient-flower: linear-gradient(45deg, hsl(var(--rose)) 0%, hsl(var(--pink-light)) 50%, hsl(var(--purple-light)) 100%);
+
+    /* ── RLC 2.0 gradients ── */
+    --gradient-gold-sheen: linear-gradient(135deg, hsl(var(--gold-deep)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold-deep)) 100%);
+    --gradient-crimson-glow: linear-gradient(180deg, hsl(var(--crimson) / 0.95) 0%, hsl(var(--crimson) / 0.7) 100%);
+    --gradient-ivory-warm: linear-gradient(180deg, hsl(var(--ivory)) 0%, hsl(35 50% 92%) 100%);
+    --gradient-hero-overlay: linear-gradient(135deg, hsl(var(--charcoal) / 0.82) 0%, hsl(var(--crimson) / 0.45) 50%, hsl(var(--charcoal) / 0.75) 100%);
+    --gradient-hero-overlay-mobile: linear-gradient(180deg, hsl(var(--charcoal) / 0.88) 0%, hsl(var(--crimson) / 0.5) 50%, hsl(var(--charcoal) / 0.82) 100%);
+
+    /* ── RLC 2.0 shadows ── */
+    --shadow-gold: 0 10px 40px -8px hsl(var(--gold) / 0.35);
+    --shadow-crimson: 0 20px 60px -12px hsl(var(--crimson) / 0.4);
+    --shadow-premium: 0 30px 80px -20px hsl(var(--charcoal) / 0.5);
 
     /* Feminine shadows */
     --shadow-pink: 0 10px 30px -10px hsl(var(--pink) / 0.3);
@@ -149,7 +177,41 @@ html {
   .hover-scale {
     @apply transition-transform duration-200 hover:scale-105;
   }
-  
+
+  /* ── RLC 2.0 text gradient utilities ── */
+  .text-gradient-gold {
+    background: var(--gradient-gold-sheen);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .text-gradient-crimson {
+    background: linear-gradient(135deg, hsl(var(--crimson-light)), hsl(var(--crimson)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Shimmer for gold text — used on the OVERCOMING headline */
+  .text-shimmer-gold {
+    background: var(--gradient-gold-sheen);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+
+  /* Thin gold divider line */
+  .gold-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.6), transparent);
+  }
   
   .animate-shimmer {
   background-size: 200% auto; /* allow room for movement */

@@ -1,28 +1,32 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface CountdownProps {
   targetDate: string;
 }
 
-const Countdown = ({ targetDate }: CountdownProps) => {
-  const calculateTimeLeft = () => {
-    const difference = +new Date(targetDate) - +new Date();
-    let timeLeft: any = {};
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
 
+const Countdown = ({ targetDate }: CountdownProps) => {
+  const calculateTimeLeft = (): TimeLeft => {
+    const difference = +new Date(targetDate) - +new Date();
     if (difference > 0) {
-      timeLeft = {
+      return {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
       };
-    } else {
-      timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
     }
-    return timeLeft;
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   };
 
-  const [display, setDisplay] = useState({
+  const [display, setDisplay] = useState<TimeLeft>({
     days: 0,
     hours: 0,
     minutes: 0,
@@ -31,9 +35,9 @@ const Countdown = ({ targetDate }: CountdownProps) => {
   const [finalValues, setFinalValues] = useState(calculateTimeLeft());
   const [animated, setAnimated] = useState(false);
 
-  // Animate count-up only once at load
+  // One-time count-up animation on mount
   useEffect(() => {
-    if (animated) return; // prevent re-run
+    if (animated) return;
     Object.entries(finalValues).forEach(([key, value]) => {
       let start = 0;
       const end = value as number;
@@ -42,7 +46,7 @@ const Countdown = ({ targetDate }: CountdownProps) => {
       const step = Math.max(1, Math.floor(end / 50));
       const interval = setInterval(() => {
         start += step;
-        setDisplay((prev: any) => ({
+        setDisplay((prev) => ({
           ...prev,
           [key]: start >= end ? end : start,
         }));
@@ -52,33 +56,41 @@ const Countdown = ({ targetDate }: CountdownProps) => {
     setAnimated(true);
   }, [finalValues, animated]);
 
-  // Normal countdown ticking every second
+  // Live ticking every second
   useEffect(() => {
     const timer = setInterval(() => {
       const newValues = calculateTimeLeft();
       setFinalValues(newValues);
-      setDisplay(newValues); // keep seconds live
+      setDisplay(newValues);
     }, 1000);
-
     return () => clearInterval(timer);
   }, [targetDate]);
 
+  const units: { label: string; value: number }[] = [
+    { label: "Days", value: display.days },
+    { label: "Hours", value: display.hours },
+    { label: "Minutes", value: display.minutes },
+    { label: "Seconds", value: display.seconds },
+  ];
+
   return (
-    <div className="grid md:grid-cols-5 grid-cols-2 gap-4 justify-center mt-16 text-center">
-      {Object.entries(display).map(([label, value]) => (
-        <div
-          key={label}
-          className="flex flex-col items-center bg-white backdrop-blur-md px-4 py-2 rounded-xl shadow-lg"
+    <div className="flex items-stretch justify-center gap-2 sm:gap-3 md:gap-4">
+      {units.map((unit, i) => (
+        <motion.div
+          key={unit.label}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 + i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center justify-center rounded-lg border border-gold/25 bg-charcoal/60 px-3 py-2.5 backdrop-blur-sm sm:px-5 sm:py-3"
         >
-          <span className="text-3xl font-bold text-purple transition-all duration-300">
-            {String(value).padStart(2, "0")}
+          <span className="font-display text-2xl font-bold leading-none text-gradient-gold tabular-nums sm:text-3xl md:text-4xl">
+            {String(unit.value).padStart(2, "0")}
           </span>
-          <span className="uppercase text-xs text-pink">{label}</span>
-        </div>
+          <span className="mt-1.5 font-sans text-[9px] uppercase tracking-[0.2em] text-ivory/60 sm:text-[10px] md:text-xs">
+            {unit.label}
+          </span>
+        </motion.div>
       ))}
-      <div className="hidden md:flex flex-col items-center justify-center bg-white backdrop-blur-md px-4 py-2 rounded-xl shadow-lg">
-        <span className="text-lg text-pink ">LEFT</span>
-      </div>
     </div>
   );
 };
